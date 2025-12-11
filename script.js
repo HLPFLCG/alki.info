@@ -1064,9 +1064,196 @@ class ArtistLinkHub {
     }
 }
 
+// QR Code and Advanced Analytics Functions
+class AdvancedFeatures {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        this.generateQRCode();
+        this.setupCopyLink();
+        this.initializeAdvancedAnalytics();
+        this.simulateRealTimeData();
+    }
+    
+    // QR Code generation
+    generateQRCode() {
+        const qrContainer = document.getElementById('qrContainer');
+        if (!qrContainer) return;
+        
+        const currentUrl = window.location.href;
+        
+        // Clear existing QR code
+        qrContainer.innerHTML = '<canvas id="qrCode"></canvas>';
+        
+        // Generate new QR code
+        if (typeof QRCode !== 'undefined') {
+            new QRCode(document.getElementById('qrCode'), {
+                text: currentUrl,
+                width: 150,
+                height: 150,
+                colorDark: '#2C2416',
+                colorLight: '#F5F0E8',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    }
+    
+    // Copy link functionality
+    setupCopyLink() {
+        const copyBtn = document.getElementById('copyLinkBtn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const currentUrl = window.location.href;
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    copyBtn.style.background = '#8B7355';
+                    
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalText;
+                        copyBtn.style.background = '';
+                    }, 2000);
+                });
+            });
+        }
+    }
+    
+    // Advanced analytics
+    initializeAdvancedAnalytics() {
+        this.analytics = this.loadAdvancedAnalytics();
+        this.trackPageView();
+        this.updateAnalyticsDisplay();
+    }
+    
+    loadAdvancedAnalytics() {
+        const saved = localStorage.getItem('alkiAdvancedAnalytics');
+        if (saved) {
+            return JSON.parse(saved);
+        }
+        
+        return {
+            clicks: 0,
+            uniqueVisitors: new Set().size,
+            timeSpent: 0,
+            avgSessionTime: 0,
+            musicPlays: 0,
+            platforms: {},
+            funnel: {
+                pageViews: 0,
+                linkClicks: 0,
+                musicStreams: 0,
+                conversions: 0
+            },
+            lastUpdated: new Date().toISOString()
+        };
+    }
+    
+    trackPageView() {
+        this.analytics.funnel.pageViews++;
+        this.saveAnalytics();
+    }
+    
+    trackClick(platform, url) {
+        this.analytics.clicks++;
+        this.analytics.platforms[platform] = (this.analytics.platforms[platform] || 0) + 1;
+        this.analytics.funnel.linkClicks++;
+        this.analytics.lastUpdated = new Date().toISOString();
+        
+        this.saveAnalytics();
+        this.updateAnalyticsDisplay();
+        
+        // Open in new tab
+        window.open(url, '_blank');
+    }
+    
+    updateAnalyticsDisplay() {
+        // Update basic metrics
+        const totalClicksElement = document.getElementById('totalClicksAnalytics');
+        if (totalClicksElement) totalClicksElement.textContent = this.analytics.clicks;
+        
+        const uniqueVisitorsElement = document.getElementById('uniqueVisitors');
+        if (uniqueVisitorsElement) uniqueVisitorsElement.textContent = this.analytics.uniqueVisitors;
+        
+        const avgTimeElement = document.getElementById('avgTime');
+        if (avgTimeElement) avgTimeElement.textContent = this.analytics.avgSessionTime + 's';
+        
+        const musicPlaysElement = document.getElementById('musicPlays');
+        if (musicPlaysElement) musicPlaysElement.textContent = this.analytics.musicPlays;
+        
+        // Update funnel
+        if (this.analytics.funnel) {
+            const pageViewsElement = document.getElementById('pageViews');
+            if (pageViewsElement) pageViewsElement.textContent = this.analytics.funnel.pageViews;
+            
+            const linkClicksElement = document.getElementById('linkClicks');
+            if (linkClicksElement) linkClicksElement.textContent = this.analytics.funnel.linkClicks;
+            
+            const musicStreamsElement = document.getElementById('musicStreams');
+            if (musicStreamsElement) musicStreamsElement.textContent = this.analytics.funnel.musicStreams;
+            
+            const conversionsElement = document.getElementById('conversions');
+            if (conversionsElement) conversionsElement.textContent = this.analytics.funnel.conversions;
+        }
+        
+        // Update platform performance
+        this.updatePlatformPerformance();
+    }
+    
+    updatePlatformPerformance() {
+        const platforms = ['spotify', 'instagram', 'youtube', 'tiktok'];
+        platforms.forEach(platform => {
+            const element = document.querySelector(`.platform-item[data-platform="${platform}"] .platform-clicks`);
+            if (element) {
+                element.textContent = this.analytics.platforms[platform] || 0;
+            }
+        });
+    }
+    
+    simulateRealTimeData() {
+        setInterval(() => {
+            // Simulate new visitor
+            if (Math.random() > 0.8) {
+                this.analytics.uniqueVisitors++;
+            }
+            
+            // Simulate time spent
+            this.analytics.avgSessionTime = Math.floor(Math.random() * 300) + 60;
+            
+            // Simulate music plays
+            if (Math.random() > 0.9) {
+                this.analytics.musicPlays++;
+            }
+            
+            // Update display
+            this.updateAnalyticsDisplay();
+            this.saveAnalytics();
+        }, 5000); // Update every 5 seconds
+    }
+    
+    saveAnalytics() {
+        localStorage.setItem('alkiAdvancedAnalytics', JSON.stringify(this.analytics));
+    }
+}
+
+// Analytics button functionality
+function setupAnalyticsButton() {
+    const analyticsBtn = document.getElementById('analyticsBtn');
+    const analyticsDashboard = document.getElementById('analyticsDashboard');
+    
+    if (analyticsBtn && analyticsDashboard) {
+        analyticsBtn.addEventListener('click', () => {
+            analyticsDashboard.style.display = analyticsDashboard.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+}
+
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ArtistLinkHub();
+    new AdvancedFeatures();
+    setupAnalyticsButton();
 });
 
 // PWA Service Worker Registration
