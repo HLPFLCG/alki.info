@@ -8,16 +8,18 @@
 }
 
 :root {
-    /* Punk/Emo/Manly Color Palette */
-    --primary-color: #FF0040;
-    --primary-dark: #CC0033;
-    --primary-light: #FF1A4D;
-    --secondary-color: #0A0A0A;
+    /* MGK-Inspired Punk Rock Color Palette */
+    --primary-color: #FF0000;
+    --primary-dark: #CC0000;
+    --primary-light: #FF1A1A;
+    --secondary-color: #000000;
     --secondary-dark: #000000;
     --secondary-light: #1A1A1A;
-    --accent-color: #8B0000;
-    --accent-dark: #660000;
-    --accent-light: #A52A2A;
+    --accent-color: #FFFFFF;
+    --accent-dark: #E0E0E0;
+    --accent-light: #F0F0F0;
+    --blood-red: #8B0000;
+    --distressed-white: #F5F5F5;
     
     /* Music Platform Colors */
     --spotify-green: #1db954;
@@ -33,23 +35,29 @@
     --tiktok-pink: #ff0050;
     --twitter-black: #000000;
     
-    /* Neutral Colors - Dark Edgy Theme */
-    --white: #E0E0E0;
-    --gray-50: #D0D0D0;
-    --gray-100: #B8B8B8;
-    --gray-200: #A0A0A0;
-    --gray-300: #888888;
-    --gray-400: #707070;
-    --gray-500: #585858;
-    --gray-600: #404040;
-    --gray-700: #2A2A2A;
-    --gray-800: #1A1A1A;
-    --gray-900: #0A0A0A;
+    /* Neutral Colors - MGK Dark Theme */
+    --white: #FFFFFF;
+    --gray-50: #F5F5F5;
+    --gray-100: #E0E0E0;
+    --gray-200: #CCCCCC;
+    --gray-300: #B3B3B3;
+    --gray-400: #999999;
+    --gray-500: #808080;
+    --gray-600: #666666;
+    --gray-700: #4D4D4D;
+    --gray-800: #333333;
+    --gray-900: #1A1A1A;
+    --pitch-black: #0A0A0A;
     
-    /* Typography - Punk/Edgy Fonts */
-    --font-primary: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - MGK Punk Rock Fonts */
+    --font-primary: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'Bebas Neue', cursive;
-    --font-accent: 'Oswald', sans-serif;
+    --font-accent: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* MGK Visual Effects */
+    --grunge-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feBlend mode="multiply"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+    --distress-filter: contrast(1.1) brightness(1.05);
+    --glitch-animation: glitch 2s infinite;
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -87,10 +95,11 @@ html {
 body {
     font-family: var(--font-primary);
     background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
-        var(--secondary-color);
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, var(--pitch-black) 0%, var(--secondary-color) 50%, var(--gray-900) 100%);
     min-height: 100vh;
+    color: var(--white);
     color: var(--white);
     line-height: 1.6;
     position: relative;
@@ -1971,4 +1980,152 @@ textarea:focus {
         box-shadow: none;
         border: 1px solid var(--gray-300);
     }
+}
+
+/* MGK-Inspired Animations & Effects */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes slideInDistress {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* MGK Grunge Background */
+body {
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--grunge-overlay);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Distressed Text Effects */
+.artist-name {
+    text-shadow: 
+        2px 2px 0px var(--primary-color),
+        -2px -2px 0px var(--accent-color);
+    animation: flicker 3s infinite;
+    position: relative;
+}
+
+.artist-name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 2px;
+    color: var(--primary-color);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* MGK Button Effects */
+.track-action-btn, 
+.social-action-btn, 
+.tour-action-btn, 
+.merch-action-btn, 
+.fan-club-action-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.track-action-btn:hover, 
+.social-action-btn:hover, 
+.tour-action-btn:hover, 
+.merch-action-btn:hover, 
+.fan-club-action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    animation: glitch 0.3s;
+}
+
+/* Grunge Card Effects */
+.streaming-card, 
+.social-card, 
+.tour-card, 
+.merch-card, 
+.fan-club-card {
+    position: relative;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--gray-900) 100%);
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.streaming-card::before, 
+.social-card::before, 
+.tour-card::before, 
+.merch-card::before, 
+.fan-club-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), transparent, var(--primary-color));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.streaming-card:hover::before, 
+.social-card:hover::before, 
+.tour-card:hover::before, 
+.merch-card:hover::before, 
+.fan-club-card:hover::before {
+    opacity: 1;
+    animation: glitch 0.5s infinite;
+}
+
+/* Distressed Section Titles */
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.section-title::before {
+    right: 100%;
+    margin-right: 10px;
+}
+
+.section-title::after {
+    left: 100%;
+    margin-left: 10px;
 }
