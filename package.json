@@ -44,5 +44,11 @@
     "hlpfl"
   ],
   "author": "HLPFL",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "cookie": "^0.7.1",
+    "tar-fs": "^3.0.0",
+    "tmp": "^0.2.3",
+    "ws": "^8.18.0"
+  }
 }
