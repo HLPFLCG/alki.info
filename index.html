@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="alki otis - 28 year old musician writing songs about mental health, depression, and trying to feel something. Raw, honest music from the bedroom.">
     <meta name="keywords" content="alki otis, singer songwriter, mental health, depression, indie music, alternative, bedroom pop, grunge, Kurt Cobain style, HLPFL">
-    <title>alki otis • 28 • musician • songs about feeling nothing</title>
+    <title>alki • musician • songs about feeling nothing</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -61,10 +61,6 @@
                 <span>Alki</span>
             </div>
             <div class="header-actions">
-                <button class="manage-btn" id="manageBtn" title="For Management">
-                    <i class="fas fa-users"></i>
-                    <span>HLPFL</span>
-                </button>
                 <button class="edit-toggle" id="editToggle" title="Edit Profile">
                     <i class="fas fa-edit"></i>
                 </button>
@@ -75,7 +71,7 @@
         <section class="artist-profile-section">
             <div class="profile-image-wrapper">
                 <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop&crop=face" 
-                     alt="Alki Otis" id="profile-img" class="profile-image">
+                     alt="Alki" id="profile-img" class="profile-image">
                 <div class="verified-badge" id="verifiedBadge">
                     <i class="fas fa-check-circle"></i>
                 </div>
@@ -84,10 +80,10 @@
                 </div>
             </div>
             <div class="artist-info">
-                <h1 class="artist-name" id="artist-name" data-text="alki otis">alki otis</h1>
+                <h1 class="artist-name" id="artist-name" data-text="alki">alki</h1>
                 <p class="artist-title" id="artist-title">28 • musician • just trying to feel something</p>
                 <p class="artist-bio" id="artist-bio">
-                    i write songs in my bedroom when i can't sleep. most days are hard, but the guitar helps. sometimes i wonder if anyone's really listening, or if we're all just screaming into the void. anyway, here's some music i made. managed by HLPFL.
+                    i write songs in my bedroom when i can't sleep. most days are hard, but music helps. sometimes i wonder if anyone's really listening, or if we're all just screaming into the void. anyway, here's some music i made.
                 </p>
                 <div class="artist-stats" id="artistStats">
                     <div class="stat">
@@ -118,8 +114,8 @@
                     </button>
                 </div>
                 <div class="track-info">
-                    <h3 class="track-title" id="featuredTrackTitle">empty rooms</h3>
-                    <p class="track-artist" id="featuredTrackArtist">alki otis</p>
+                    <h3 class="track-title" id="featuredTrackTitle">221</h3>
+                    <p class="track-artist" id="featuredTrackArtist">alki</p>
                     <div class="track-actions">
                         <button class="track-action-btn spotify-btn" id="spotifyBtn">
                             <i class="fab fa-spotify"></i>
@@ -128,10 +124,6 @@
                         <button class="track-action-btn apple-btn" id="appleBtn">
                             <i class="fab fa-apple"></i>
                             <span>Apple</span>
-                        </button>
-                        <button class="track-action-btn youtube-btn" id="youtubeBtn">
-                            <i class="fab fa-youtube"></i>
-                            <span>YouTube</span>
                         </button>
                     </div>
                 </div>
@@ -160,7 +152,7 @@
                     </div>
                     <div class="streaming-stats">
                         <div class="streaming-stat">
-                            <span class="stat-count" id="spotifyListeners">234K</span>
+                            <span class="stat-count" id="spotifyListeners">51K</span>
                             <span class="stat-type">Monthly Listeners</span>
                         </div>
                     </div>
@@ -188,25 +180,6 @@
                     </div>
                 </div>
 
-                <!-- SoundCloud -->
-                <div class="streaming-card soundcloud-card" data-platform="soundcloud">
-                    <div class="streaming-header">
-                        <div class="streaming-icon">
-                            <i class="fab fa-soundcloud"></i>
-                        </div>
-                        <div class="streaming-info">
-                            <h3>SoundCloud</h3>
-                            <p class="streaming-type">Audio Tracks</p>
-                        </div>
-                        <div class="streaming-badge">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                    </div>
-                    <div class="streaming-footer">
-                        <button class="streaming-btn">Stream on SoundCloud</button>
-                    </div>
-                </div>
-
                 <!-- YouTube Music -->
                 <div class="streaming-card youtube-music-card" data-platform="youtube-music">
                     <div class="streaming-header">
@@ -225,46 +198,6 @@
                         <button class="streaming-btn">Watch & Listen</button>
                     </div>
                 </div>
-
-                <!-- Tidal -->
-                <div class="streaming-card tidal-card" data-platform="tidal">
-                    <div class="streaming-header">
-                        <div class="streaming-icon">
-                            <i class="fas fa-water"></i>
-                        </div>
-                        <div class="streaming-info">
-                            <h3>Tidal</h3>
-                            <p class="streaming-type">Hi-Fi Streaming</p>
-                        </div>
-                        <div class="streaming-badge">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                    </div>
-                    <div class="streaming-footer">
-                        <button class="streaming-btn">Stream on Tidal</button>
-                    </div>
-                </div>
-
-                <!-- Bandcamp -->
-                <div class="streaming-card bandcamp-card" data-platform="bandcamp">
-                    <div class="streaming-header">
-                        <div class="streaming-icon">
-                            <i class="fas fa-circle"></i>
-                        </div>
-                        <div class="streaming-info">
-                            <h3>Bandcamp</h3>
-                            <p class="streaming-type">Direct Support</p>
-                        </div>
-                        <div class="streaming-badge">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="streaming-footer">
-                        <button class="streaming-btn">Support on Bandcamp</button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Social Media Hub -->
         <section class="social-hub">
@@ -288,11 +221,11 @@
                     </div>
                     <div class="social-stats">
                         <div class="social-stat">
-                            <span class="stat-count" id="instagramFollowers">12.5K</span>
+                            <span class="stat-count" id="instagramFollowers">1.8K</span>
                             <span class="stat-type">Followers</span>
                         </div>
                         <div class="social-stat">
-                            <span class="stat-count" id="instagramPosts">892</span>
+                            <span class="stat-count" id="instagramPosts">11</span>
                             <span class="stat-type">Posts</span>
                         </div>
                     </div>
@@ -312,7 +245,7 @@
                         </div>
                         <div class="social-info">
                             <h3>YouTube</h3>
-                            <p class="social-handle">Alki Otis Music</p>
+                            <p class="social-handle">Alki</p>
                         </div>
                         <div class="social-badge verified">
                             <i class="fas fa-check-circle"></i>
@@ -354,11 +287,11 @@
                     </div>
                     <div class="social-stats">
                         <div class="social-stat">
-                            <span class="stat-count" id="tiktokFollowers">89.3K</span>
+                            <span class="stat-count" id="tiktokFollowers">9.3K</span>
                             <span class="stat-type">Followers</span>
                         </div>
                         <div class="social-stat">
-                            <span class="stat-count" id="tiktokLikes">2.1M</span>
+                            <span class="stat-count" id="tiktokLikes">1.2M</span>
                             <span class="stat-type">Likes</span>
                         </div>
                     </div>
@@ -387,11 +320,11 @@
                     </div>
                     <div class="social-stats">
                         <div class="social-stat">
-                            <span class="stat-count" id="twitterFollowers">8.7K</span>
+                            <span class="stat-count" id="twitterFollowers">0.7K</span>
                             <span class="stat-type">Followers</span>
                         </div>
                         <div class="social-stat">
-                            <span class="stat-count" id="twitterTweets">3.2K</span>
+                            <span class="stat-count" id="twitterTweets">13.2K</span>
                             <span class="stat-type">Tweets</span>
                         </div>
                     </div>
@@ -421,9 +354,9 @@
                     <div class="tour-list" id="tourDates">
                         <div class="tour-date-item">
                             <div class="tour-date-info">
-                                <span class="tour-date">Dec 15</span>
-                                <span class="tour-venue">The Coffee House</span>
-                                <span class="tour-location">Los Angeles, CA</span>
+                                <span class="tour-date">???</span>
+                                <span class="tour-venue">???</span>
+                                <span class="tour-location">???</span>
                             </div>
                             <button class="tour-tickets-btn">Tickets</button>
                         </div>
@@ -437,9 +370,9 @@
                         </div>
                         <div class="tour-date-item">
                             <div class="tour-date-info">
-                                <span class="tour-date">Jan 5</span>
-                                <span class="tour-venue">Small Venue</span>
-                                <span class="tour-location">Chicago, IL</span>
+                                <span class="tour-date">April 2025</span>
+                                <span class="tour-venue">The Stache</span>
+                                <span class="tour-location">Grand Rapids, MI</span>
                             </div>
                             <button class="tour-tickets-btn">Tickets</button>
                         </div>
@@ -549,12 +482,12 @@
                         <div class="fan-club-icon">
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3>sad songs club</h3>
+                        <h3>everything alki</h3>
                     </div>
                     <div class="fan-club-benefits">
                         <div class="benefit-item">
                             <i class="fas fa-check"></i>
-                            <span>Early access to new music</span>
+                            <span>Early access to unreleased music</span>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-check"></i>
@@ -566,10 +499,10 @@
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-check"></i>
-                            <span>Discounted merchandise</span>
+                            <span>Early merchandise</span>
                         </div>
                     </div>
-                    <button class="fan-club-btn">i guess we're in this together</button>
+                    <button class="fan-club-btn">we're in this sh*t together</button>
                 </div>
 
                 <!-- Newsletter -->
@@ -602,7 +535,7 @@
                     <div class="contact-info">
                         <h3>Management</h3>
                         <p>For bookings, partnerships, and business inquiries</p>
-                        <span class="contact-email">management@hlpfl.org</span>
+                        <span class="contact-email">contact@hlpfl.org</span>
                     </div>
                     <button class="contact-btn">Contact HLPFL</button>
                 </div>
@@ -615,7 +548,7 @@
                     <div class="contact-info">
                         <h3>Press & Media</h3>
                         <p>For interviews, reviews, and media features</p>
-                        <span class="contact-email">press@hlpfl.org</span>
+                        <span class="contact-email">contact@hlpfl.org</span>
                     </div>
                     <button class="contact-btn">Press Kit</button>
                 </div>
@@ -628,7 +561,7 @@
                     <div class="contact-info">
                         <h3>Fan Mail</h3>
                         <p>Send messages and support directly to Alki</p>
-                        <span class="contact-email">fans@alkiotis.com</span>
+                        <span class="contact-email">contact@alkiotis.com</span>
                     </div>
                     <button class="contact-btn">Send Message</button>
                 </div>
@@ -684,7 +617,7 @@
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <i class="fas fa-music"></i>
-                        <span>Alki Otis</span>
+                        <span>Alki</span>
                     </div>
                     <p class="footer-tagline">Music that moves the soul</p>
                     <div class="managed-by-footer">
@@ -695,12 +628,11 @@
                 <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms of Service</a>
-                    <a href="#" class="footer-link">HLPFL Management</a>
+                    <a href="#" class="footer-link">HLPFL</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Alki Otis. All rights reserved.</p>
-                <p>Made with ❤️ for fans and supporters</p>
+                <p>&copy; 2025 Alki, HLPFL Co. All rights reserved.</p>
             </div>
         </footer>
     </div>
