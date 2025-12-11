@@ -1,0 +1,68 @@
+{
+  "name": "alki-otis-link-hub",
+  "version": "1.0.0",
+  "description": "Music Artist Link Hub Template - A comprehensive link-in-bio solution for musicians and artists",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "dev": "live-server --port=8080 --open=/",
+    "build": "echo 'No build step required - static files ready'",
+    "deploy": "echo 'Deploy to your preferred hosting platform'",
+    "test": "echo 'Run manual testing in browser'",
+    "optimize": "echo 'Run image optimization and minification'",
+    "validate": "html-validate index.html && stylelint style.css"
+  },
+  "keywords": [
+    "music",
+    "artist",
+    "link-in-bio",
+    "musicians",
+    "streaming",
+    "social-media",
+    "tour",
+    "booking",
+    "hlpfl"
+  ],
+  "author": {
+    "name": "HLPFL",
+    "email": "management@hlpfl.org",
+    "url": "https://hlpfl.org"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HLPFLCG/whitelabellinkinbio.git"
+  },
+  "homepage": "https://hlpfl.org",
+  "bugs": {
+    "url": "https://github.com/HLPFLCG/whitelabellinkinbio/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "html-validate": "^8.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^33.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "files": [
+    "index.html",
+    "style.css",
+    "script.js",
+    "manifest.json",
+    "template-system.js",
+    "README.md",
+    "assets/"
+  ],
+  "config": {
+    "port": 8080,
+    "host": "localhost"
+  }
+}
