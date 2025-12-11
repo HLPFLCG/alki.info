@@ -55,8 +55,8 @@ header {
 }
 
 .profile-image-wrapper {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     margin: 0 auto 20px;
     border-radius: var(--radius);
     overflow: hidden;
@@ -71,8 +71,8 @@ header {
 }
 
 .artist-name {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 38px;
+    font-weight: 400;
     margin-bottom: 8px;
     color: var(--text-primary);
 }
@@ -80,7 +80,7 @@ header {
 .artist-bio {
     font-size: 16px;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
@@ -99,13 +99,13 @@ header {
 }
 
 .stat-number {
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .stat-label {
-    font-size: 12px;
+    font-size: 22px;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
