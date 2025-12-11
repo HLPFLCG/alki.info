@@ -3,25 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alki</title>
-    <meta name="description" content="alki.">
+    <title>alki - Music Artist | Rock, Weed, Tofu</title>
+    <meta name="description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram for daily updates and behind the scenes content.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="alki, music artist, rock music, spotify, apple music, instagram, hlpfl">
+    <meta name="author" content="alki">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="alki - Music Artist">
+    <meta property="og:description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram for daily updates.">
+    <meta property="og:image" content="https://alki.info/tac.jpeg">
+    <meta property="og:url" content="https://alki.info">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="alki">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="alki - Music Artist">
+    <meta name="twitter:description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram.">
+    <meta name="twitter:image" content="https://alki.info/tac.jpeg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alki.info">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="tac.jpeg">
     
     <!-- Styles -->
     <link rel="stylesheet" href="style-simplified.css">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+    <script src="scripts.js" defer></script>
 </head>
 <body>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "alki",
+        "description": "Music artist creating rock music",
+        "image": "https://alki.info/tac.jpeg",
+        "url": "https://alki.info",
+        "sameAs": [
+            "https://instagram.com/alkiotis",
+            "https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl",
+            "https://music.apple.com/us/artist/alki/1806145617",
+            "https://app.grouped.com/everythingalki"
+        ],
+        "genre": ["Rock"],
+        "publisher": {
+            "@type": "Organization",
+            "name": "HLPFL",
+            "url": "https://hlpfl.org"
+        }
+    }
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>This website uses cookies to enhance your experience. By continuing to use this site, you agree to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+                <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+                <a href="https://hlpfl.org/privacy" target="_blank" class="cookie-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
-            <h1 class="artist-name">alki</h1>
-            <p class="artist-bio">rock, weed, tofu</p>
+            <div class="header-content">
+                <h1 class="artist-name">alki</h1>
+                <p class="artist-bio">rock, weed, tofu</p>
+            </div>
             
             <div class="profile-image-wrapper">
                 <img src="tac.jpeg" 
-                     alt="alki" class="profile-image">
+                     alt="alki" 
+                     class="profile-image"
+                     id="header-image">
             </div>
             
             <div class="artist-stats">
@@ -52,7 +120,7 @@
 
             <!-- Links Section -->
             <section class="links-grid">
-            <a href="https://instagram.com/alkiotis" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://instagram.com/alkiotis" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="instagram" data-visible="true">
                     <div class="link-icon" style="color: #E4405F;">
                         <i class="fab fa-instagram"></i>
                     </div>
@@ -62,7 +130,7 @@
                     </div>
                 </a>
             
-                <a href="https://app.grouped.com/everythingalki" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://app.grouped.com/everythingalki" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="grouped" data-visible="true">
                     <div class="link-icon" style="color: #1db954;">
                         <img src="groupedlogo.png" alt="Grouped" style="width: 24px; height: 24px; border-radius: 4px; object-fit: cover;">
                     </div>
@@ -72,7 +140,7 @@
                     </div>
                 </a>
 
-                <a href="https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl?si=90TnhiklR9S8PBOtj8RkOg" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl?si=90TnhiklR9S8PBOtj8RkOg" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="spotify" data-visible="true">
                     <div class="link-icon" style="color: #1db954;">
                         <i class="fab fa-spotify"></i>
                     </div>
@@ -82,7 +150,7 @@
                     </div>
                 </a>
 
-                <a href="https://music.apple.com/us/artist/alki/1806145617" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://music.apple.com/us/artist/alki/1806145617" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="apple-music" data-visible="true">
                     <div class="link-icon" style="color: #333333;">
                         <i class="fab fa-apple"></i>
                     </div>
@@ -92,7 +160,7 @@
                     </div>
                 </a>
 
-                <a href="https://hlpfl.org" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://hlpfl.org" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="label" data-visible="true">
                     <div class="logo">
                         <img src="blacklogonobackgroudn.svg" alt="HLPFL">
                     </div>
@@ -102,7 +170,7 @@
                     </div>
                 </a>
 
-                <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="tiktok" data-visible="false">
                     <div class="link-icon" style="color: #000000;">
                         <i class="fab fa-tiktok"></i>
                     </div>
@@ -112,7 +180,7 @@
                     </div>
                 </a>
 
-                <a href="https://twitter.com/YOUR_TWITTER" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://twitter.com/YOUR_TWITTER" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="twitter" data-visible="false">
                     <div class="link-icon" style="color: #1DA1F2;">
                         <i class="fab fa-twitter"></i>
                     </div>
@@ -122,7 +190,7 @@
                     </div>
                 </a>
 
-                <a href="mailto:YOUR_EMAIL@example.com" class="link-card">
+                <a href="mailto:YOUR_EMAIL@example.com" class="link-card" data-platform="contact" data-visible="false">
                     <div class="link-icon" style="color: #6366f1;">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -132,7 +200,7 @@
                     </div>
                 </a>
 
-                <a href="https://YOUR_TICKETING_SITE.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                <a href="https://YOUR_TICKETING_SITE.com" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="shows" data-visible="false">
                     <div class="link-icon" style="color: #6366f1;">
                         <i class="fas fa-ticket-alt"></i>
                     </div>
@@ -158,6 +226,15 @@
                     </div>
                 </a>
             </div>
+            
+            <div class="legal-links">
+                <a href="https://hlpfl.org/privacy" target="_blank" rel="noopener noreferrer" class="legal-link">Privacy Policy</a>
+                <span class="separator">•</span>
+                <a href="https://hlpfl.org/terms" target="_blank" rel="noopener noreferrer" class="legal-link">Terms of Use</a>
+                <span class="separator">•</span>
+                <button id="cookie-settings" class="cookie-settings-btn">Cookie Settings</button>
+            </div>
+            
             <p class="copyright">© 2024 alki • HLPFL</p>
         </footer>
     </div>

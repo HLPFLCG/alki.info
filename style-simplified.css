@@ -335,3 +335,231 @@ footer {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
 }
+
+/* Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(99, 102, 241, 0.95));
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-banner.hidden {
+    transform: translateY(100%);
+}
+
+.cookie-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cookie-content p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.cookie-btn.accept {
+    background: #10b981;
+}
+
+.cookie-btn.decline {
+    background: #ef4444;
+}
+
+.cookie-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-link {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+}
+
+.cookie-link:hover {
+    opacity: 0.8;
+}
+
+/* Legal Links in Footer */
+.legal-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.legal-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+    color: var(--secondary);
+}
+
+.separator {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.cookie-settings-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-family: inherit;
+}
+
+.cookie-settings-btn:hover {
+    color: var(--secondary);
+}
+
+/* Header Content Structure */
+.header-content {
+    margin-bottom: 30px;
+}
+
+/* Button Visibility Classes */
+.link-card[data-visible="false"] {
+    display: none !important;
+}
+
+.link-card[data-visible="true"] {
+    display: flex !important;
+}
+
+/* Admin Toggle (hidden by default) */
+.admin-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 100;
+    display: none; /* Hidden by default, can be shown for admin use */
+}
+
+.admin-toggle:hover {
+    background: #5558e3;
+}
+
+/* Enhanced Link Card Animations */
+.link-card[data-visible="true"] {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Cookie Banner */
+@media (max-width: 480px) {
+    .cookie-banner {
+        padding: 15px;
+    }
+    
+    .cookie-content p {
+        font-size: 13px;
+    }
+    
+    .cookie-buttons {
+        gap: 10px;
+    }
+    
+    .cookie-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .legal-links {
+        gap: 10px;
+    }
+    
+    .legal-link,
+    .separator,
+    .cookie-settings-btn {
+        font-size: 11px;
+    }
+}
+
+/* Loading States */
+body:not(.loaded) .link-card {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+body.loaded .link-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+/* Debug Mode (for development) */
+.debug-mode .admin-toggle {
+    display: block;
+}
+
+.debug-mode .link-card::before {
+    content: attr(data-platform);
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    z-index: 10;
+}
