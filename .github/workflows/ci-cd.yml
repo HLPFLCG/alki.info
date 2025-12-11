@@ -1,0 +1,77 @@
+name: Artist Link Hub CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install -g html-validate stylelint eslint
+          npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
+          
+      - name: HTML Validation
+        run: |
+          npx html-validate --formatter github *.html
+          
+      - name: CSS Linting
+        run: |
+          npx stylelint "*.css" --formatter github
+          
+      - name: JavaScript Linting
+        run: |
+          npx eslint "*.js" --format github
+          
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun --config=.lighthouserc.js
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run Security Scan
+        run: |
+          npm audit --audit-level moderate
+          
+  deploy-staging:
+    needs: [quality-check, security-scan]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Staging
+        run: |
+          echo "Deploying to staging environment"
+          # Add staging deployment commands here
+          
+  deploy-production:
+    needs: [quality-check, security-scan]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Production
+        run: |
+          echo "Deploying to production environment"
+          # Add production deployment commands here
