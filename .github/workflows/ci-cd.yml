@@ -1,33 +1,41 @@
-name: Alki Musician Site CI/CD
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy-production:
+  build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    environment: production
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          
-  deploy-staging:
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
-    environment: staging
+    needs: build
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Deploy to Staging
-        run: |
-          echo "Deploying to staging environment"
-          # Add staging deployment commands here if needed
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

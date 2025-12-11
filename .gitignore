@@ -74,7 +74,6 @@ api/
 demo/
 
 # Duplicate/backup files
-*-simplified.*
 *-backup.*
 *-old.*
 
