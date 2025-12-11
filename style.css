@@ -8,18 +8,19 @@
 }
 
 :root {
-    /* MGK-Inspired Punk Rock Color Palette */
-    --primary-color: #FF0000;
-    --primary-dark: #CC0000;
-    --primary-light: #FF1A1A;
-    --secondary-color: #000000;
-    --secondary-dark: #000000;
-    --secondary-light: #1A1A1A;
-    --accent-color: #FFFFFF;
-    --accent-dark: #E0E0E0;
-    --accent-light: #F0F0F0;
-    --blood-red: #8B0000;
-    --distressed-white: #F5F5F5;
+    /* Kurt Cobain-Inspired Grunge Color Palette */
+    --primary-color: #8B7355;
+    --primary-dark: #6B5945;
+    --primary-light: #A68B6F;
+    --secondary-color: #2C2416;
+    --secondary-dark: #1A1410;
+    --secondary-light: #3A2F20;
+    --accent-color: #D4C4B0;
+    --accent-dark: #B8A898;
+    --accent-light: #E8E0D0;
+    --washed-blue: #7A8B99;
+    --faded-red: #A67C6C;
+    --vintage-beige: #E8DCC0;
     
     /* Music Platform Colors */
     --spotify-green: #1db954;
@@ -35,29 +36,33 @@
     --tiktok-pink: #ff0050;
     --twitter-black: #000000;
     
-    /* Neutral Colors - MGK Dark Theme */
-    --white: #FFFFFF;
-    --gray-50: #F5F5F5;
-    --gray-100: #E0E0E0;
-    --gray-200: #CCCCCC;
-    --gray-300: #B3B3B3;
-    --gray-400: #999999;
-    --gray-500: #808080;
-    --gray-600: #666666;
-    --gray-700: #4D4D4D;
-    --gray-800: #333333;
-    --gray-900: #1A1A1A;
-    --pitch-black: #0A0A0A;
+    /* Neutral Colors - Kurt Cobain Grunge Theme */
+    --white: #F5F0E8;
+    --gray-50: #E8E0D0;
+    --gray-100: #D4C4B0;
+    --gray-200: #C0B098;
+    --gray-300: #AC9C80;
+    --gray-400: #988868;
+    --gray-500: #847450;
+    --gray-600: #6B5945;
+    --gray-700: #544835;
+    --gray-800: #3A2F20;
+    --gray-900: #2C2416;
+    --sepia-dark: #1A1410;
     
-    /* Typography - MGK Punk Rock Fonts */
-    --font-primary: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-display: 'Bebas Neue', cursive;
-    --font-accent: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Kurt Cobain Grunge Fonts */
+    --font-primary: 'Kalam', cursive;
+    --font-handwritten: 'Caveat', cursive;
+    --font-typewriter: 'Special Elite', cursive;
+    --font-journal: 'Homemade Apple', cursive;
+    --font-display: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
     
-    /* MGK Visual Effects */
-    --grunge-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feBlend mode="multiply"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
-    --distress-filter: contrast(1.1) brightness(1.05);
-    --glitch-animation: glitch 2s infinite;
+    /* Kurt Cobain Visual Effects */
+    --grunge-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feBlend mode="multiply"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.08"/></svg>');
+    --film-grain: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="grain"><feTurbulence type="turbulence" baseFrequency="0.9" numOctaves="4" seed="5"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23grain)" opacity="0.15"/></svg>');
+    --vhs-distortion: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="vhs"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="noise" seed="1"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter><rect width="100" height="100" filter="url(%23vhs)" opacity="0.1"/></svg>');
+    --distress-filter: contrast(0.9) brightness(1.1) sepia(0.3);
+    --fade-animation: fade 4s infinite;
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -95,11 +100,12 @@ html {
 body {
     font-family: var(--font-primary);
     background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
-        linear-gradient(135deg, var(--pitch-black) 0%, var(--secondary-color) 50%, var(--gray-900) 100%);
+        radial-gradient(circle at 20% 80%, rgba(139, 115, 85, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(122, 139, 153, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg, var(--sepia-dark) 0%, var(--secondary-color) 50%, var(--secondary-light) 100%);
     min-height: 100vh;
     color: var(--white);
+    position: relative;
     color: var(--white);
     line-height: 1.6;
     position: relative;
@@ -1982,31 +1988,42 @@ textarea:focus {
     }
 }
 
-/* MGK-Inspired Animations & Effects */
+/* Kurt Cobain-Inspired Animations & Effects */
 @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    0% { transform: translate(0); filter: hue-rotate(0deg); }
+    20% { transform: translate(-1px, 1px); filter: hue-rotate(10deg); }
+    40% { transform: translate(-1px, -1px); filter: hue-rotate(-10deg); }
+    60% { transform: translate(1px, 1px); filter: hue-rotate(15deg); }
+    80% { transform: translate(1px, -1px); filter: hue-rotate(-15deg); }
+    100% { transform: translate(0); filter: hue-rotate(0deg); }
 }
 
 @keyframes flicker {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    50% { opacity: 0.85; }
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.7; }
 }
 
 @keyframes slideInDistress {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% { transform: translateY(20px); opacity: 0; filter: blur(2px); }
+    100% { transform: translateY(0); opacity: 1; filter: blur(0); }
 }
 
-/* MGK Grunge Background */
-body {
-    position: relative;
+@keyframes handwriting {
+    0% { stroke-dashoffset: 1000; }
+    100% { stroke-dashoffset: 0; }
 }
 
+@keyframes polaroidFade {
+    0% { opacity: 0; transform: scale(0.95) rotate(-1deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Kurt Cobain Grunge Background */
 body::before {
     content: '';
     position: fixed;
@@ -2014,31 +2031,61 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--grunge-overlay);
+    background: var(--film-grain);
     pointer-events: none;
     z-index: 1;
+    mix-blend-mode: multiply;
 }
 
-/* Distressed Text Effects */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--vhs-distortion);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+}
+
+/* Handwritten Text Effects */
 .artist-name {
+    font-family: var(--font-journal);
+    color: var(--gray-100);
     text-shadow: 
-        2px 2px 0px var(--primary-color),
-        -2px -2px 0px var(--accent-color);
-    animation: flicker 3s infinite;
+        1px 1px 2px rgba(0, 0, 0, 0.3),
+        -1px -1px 0px rgba(255, 255, 255, 0.1);
+    animation: fade 4s infinite;
     position: relative;
+    filter: var(--distress-filter);
+    letter-spacing: -1px;
+}
+
+.artist-name::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    color: var(--primary-color);
+    z-index: -1;
+    opacity: 0.3;
+    animation: glitch 8s infinite;
 }
 
 .artist-name::after {
-    content: attr(data-text);
+    content: '';
     position: absolute;
-    top: 0;
-    left: 2px;
-    color: var(--primary-color);
-    z-index: -1;
-    opacity: 0.5;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.3;
 }
 
-/* MGK Button Effects */
+/* Kurt Cobain Button Effects */
 .track-action-btn, 
 .social-action-btn, 
 .tour-action-btn, 
@@ -2046,8 +2093,14 @@ body::before {
 .fan-club-action-btn {
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    border: 2px solid var(--primary-color);
+    transition: all 0.4s ease;
+    border: 1px solid var(--gray-400);
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary-color) 100%);
+    font-family: var(--font-typewriter);
+    color: var(--gray-100);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    filter: var(--distress-filter);
 }
 
 .track-action-btn:hover, 
@@ -2055,21 +2108,26 @@ body::before {
 .tour-action-btn:hover, 
 .merch-action-btn:hover, 
 .fan-club-action-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-    animation: glitch 0.3s;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border-color: var(--primary-light);
 }
 
-/* Grunge Card Effects */
+/* Vintage Polaroid Card Effects */
 .streaming-card, 
 .social-card, 
 .tour-card, 
 .merch-card, 
 .fan-club-card {
     position: relative;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--gray-900) 100%);
-    border: 1px solid var(--primary-color);
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--vintage-beige) 0%, var(--gray-50) 100%);
+    border: 1px solid var(--gray-400);
+    transition: all 0.4s ease;
+    filter: var(--distress-filter);
+    animation: polaroidFade 1s ease-out;
+    padding: 20px;
+    margin: 10px 0;
 }
 
 .streaming-card::before, 
@@ -2079,53 +2137,74 @@ body::before {
 .fan-club-card::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--primary-color), transparent, var(--primary-color));
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--washed-blue), var(--faded-red), var(--washed-blue));
+    opacity: 0.5;
 }
 
-.streaming-card:hover::before, 
-.social-card:hover::before, 
-.tour-card:hover::before, 
-.merch-card:hover::before, 
-.fan-club-card:hover::before {
-    opacity: 1;
-    animation: glitch 0.5s infinite;
+.streaming-card::after, 
+.social-card::after, 
+.tour-card::after, 
+.merch-card::after, 
+.fan-club-card::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--gray-300);
+    transform: rotate(45deg);
+    opacity: 0.3;
 }
 
-/* Distressed Section Titles */
+.streaming-card:hover, 
+.social-card:hover, 
+.tour-card:hover, 
+.merch-card:hover, 
+.fan-club-card:hover {
+    transform: rotate(-1deg) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--vintage-beige) 100%);
+}
+
+/* Handwritten Journal Section Titles */
 .section-title {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    font-family: var(--font-handwritten);
+    font-size: 2.2rem;
     color: var(--primary-color);
     position: relative;
     display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.section-title::before,
-.section-title::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 2px;
-    background: var(--primary-color);
+    margin-bottom: 1.5rem;
+    filter: var(--distress-filter);
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    transform: rotate(-0.5deg);
 }
 
 .section-title::before {
-    right: 100%;
-    margin-right: 10px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.3;
 }
 
 .section-title::after {
-    left: 100%;
-    margin-left: 10px;
+    content: attr(data-doodle);
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    font-family: var(--font-journal);
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    opacity: 0.6;
+    transform: rotate(5deg);
 }
