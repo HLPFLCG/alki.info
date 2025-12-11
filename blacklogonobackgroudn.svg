@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 178.02 450">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 32.76px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 14.89px;
+      }
+    </style>
+    <symbol id="HLPFL_Symbol_Black_2" data-name="HLPFL Symbol Black 2" viewBox="0 0 268.21 678.01">
+      <g>
+        <path class="cls-2" d="M29.78,413.71"/>
+        <g>
+          <path class="cls-2" d="M94.24,190.8l.2,282.19c0,4.67,3.57,8.46,7.97,8.46h160.95"/>
+          <circle class="cls-2" cx="86.92" cy="141.24" r="14.89"/>
+        </g>
+        <path class="cls-2" d="M7.45,514.25V205.58c0-8.19,6.7-14.92,14.89-14.95,0,0,66.99-.26,104.12.52,43.84.81,89.61,4.94,114.08,28.45,31.48,31.4,25.18,82.18-18.05,102.49-18.23,9.96-37.86,16.07-81.18,16.16"/>
+        <circle class="cls-2" cx="24.32" cy="555.52" r="14.89"/>
+        <g>
+          <line class="cls-2" x1="260.46" y1="338.16" x2="58.29" y2="338.16"/>
+          <line class="cls-2" x1="35.28" y1="189.1" x2="35.41" y2="241.45"/>
+          <path class="cls-2" d="M35.2,335.78"/>
+          <path class="cls-2" d="M35.41,241.45"/>
+          <path class="cls-2" d="M35.41,241.45"/>
+          <line class="cls-2" x1="35.34" y1="258.93" x2="35.54" y2="314.79"/>
+          <path class="cls-2" d="M35.41,241.45"/>
+          <path class="cls-2" d="M35.34,258.93"/>
+          <path class="cls-2" d="M35.54,314.79"/>
+          <path class="cls-2" d="M35.48,332.27"/>
+        </g>
+        <path class="cls-2" d="M35.27,332.27l.39,168.1c.01,4.75,3.3,8.6,7.36,8.6l202.84.13c8.19,0,14.89-6.69,14.89-14.88V205.6c0-8.19-6.7-14.87-14.89-14.84l-172.54.56c-4.71.02-8.53,4.05-8.53,9.02v436.39"/>
+        <circle cx="7.45" cy="514.25" r="7.45"/>
+        <circle cx="64.8" cy="636.73" r="7.45"/>
+        <path class="cls-1" d="M143.48,207.83"/>
+        <polyline class="cls-1" points="143.02 16.38 143.45 661.62 143.48 416.34"/>
+        <circle cx="143.02" cy="16.38" r="16.38"/>
+        <ellipse cx="143.45" cy="661.62" rx="16.41" ry="16.38"/>
+      </g>
+    </symbol>
+  </defs>
+  <g id="HLPFL_SYMBOL_BLACKLINES_BOXOUTLINE" data-name="HLPFL SYMBOL BLACKLINES BOXOUTLINE">
+    <use width="268.21" height="678.01" transform="scale(.66)" xlink:href="#HLPFL_Symbol_Black_2"/>
+  </g>
+</svg>
