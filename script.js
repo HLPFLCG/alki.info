@@ -29,7 +29,7 @@ class ArtistLinkHub {
     loadData() {
         const defaultData = {
             artist: {
-                name: "Alki Otis",
+                name: "Alki",
                 title: "Music Artist • Songwriter",
                 bio: "Creating music that moves souls and tells stories. Managed by HLPFL - Independent Artist Management.",
                 image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop&crop=face",
@@ -46,28 +46,28 @@ class ArtistLinkHub {
             },
             streaming: {
                 spotify: {
-                    url: "https://open.spotify.com/artist/alkiotis",
+                    url: "https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl",
                     type: "Artist Profile",
                     listeners: "234K"
                 },
                 apple: {
-                    url: "https://music.apple.com/artist/alkiotis",
+                    url: "https://music.apple.com/artist/alki",
                     type: "Music Library"
                 },
                 soundcloud: {
-                    url: "https://soundcloud.com/alkiotis",
+                    url: "https://soundcloud.com/alki",
                     type: "Audio Tracks"
                 },
                 youtubeMusic: {
-                    url: "https://music.youtube.com/artist/alkiotis",
+                    url: "https://music.youtube.com/artist/alki",
                     type: "Videos & Music"
                 },
                 tidal: {
-                    url: "https://tidal.com/artist/alkiotis",
+                    url: "https://tidal.com/artist/alki",
                     type: "Hi-Fi Streaming"
                 },
                 bandcamp: {
-                    url: "https://alkiotis.bandcamp.com",
+                    url: "https://alki.bandcamp.com",
                     type: "Direct Support"
                 }
             },

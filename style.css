@@ -1,4 +1,4 @@
-/* Alki Otis - Artist Link Hub Stylesheet */
+/* Alki - Artist Link Hub Stylesheet */
 
 /* CSS Reset and Base Styles */
 * {
@@ -8,16 +8,16 @@
 }
 
 :root {
-    /* Music-Inspired Color Palette */
-    --primary-color: #6b46c1;
-    --primary-dark: #553c9a;
-    --primary-light: #7c3aed;
-    --secondary-color: #8b5cf6;
-    --secondary-dark: #7c3aed;
-    --secondary-light: #a78bfa;
-    --accent-color: #ec4899;
-    --accent-dark: #db2777;
-    --accent-light: #f472b6;
+    /* Spotify-Inspired Color Palette */
+    --primary-color: #1DB954;
+    --primary-dark: #1aa34a;
+    --primary-light: #1ed760;
+    --secondary-color: #191414;
+    --secondary-dark: #000000;
+    --secondary-light: #282828;
+    --accent-color: #1DB954;
+    --accent-dark: #1aa34a;
+    --accent-light: #1ed760;
     
     /* Music Platform Colors */
     --spotify-green: #1db954;
@@ -33,9 +33,9 @@
     --tiktok-pink: #ff0050;
     --twitter-black: #000000;
     
-    /* Neutral Colors */
+    /* Neutral Colors - Spotify Theme */
     --white: #ffffff;
-    --gray-50: #fafafa;
+    --gray-50: #ffffff;
     --gray-100: #f5f5f5;
     --gray-200: #e5e5e5;
     --gray-300: #d4d4d4;
@@ -43,8 +43,8 @@
     --gray-500: #737373;
     --gray-600: #525252;
     --gray-700: #404040;
-    --gray-800: #262626;
-    --gray-900: #171717;
+    --gray-800: #282828;
+    --gray-900: #191414;
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -85,9 +85,9 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--secondary-color);
     min-height: 100vh;
-    color: var(--gray-800);
+    color: var(--white);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
@@ -100,7 +100,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--secondary-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,8 +116,8 @@ body {
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid var(--white);
+    border: 4px solid var(--gray-700);
+    border-top: 4px solid var(--primary-color);
     border-radius: var(--radius-full);
     animation: spin 1s linear infinite;
 }
