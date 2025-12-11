@@ -1,4 +1,4 @@
-# Alki Otis - Artist Link Hub Template
+# Alki - Artist Link Hub Template
 
 A comprehensive, music-focused link-in-bio solution for artists and musicians, designed to compete with Linktree while offering superior features tailored specifically for the music industry.
 
