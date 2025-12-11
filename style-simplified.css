@@ -83,7 +83,7 @@ header {
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    padding-bottom: 20px;
 }
 
 /* Clean Stats */
