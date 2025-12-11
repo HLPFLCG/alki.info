@@ -8,19 +8,20 @@
 }
 
 :root {
-    /* Kurt Cobain-Inspired Grunge Color Palette */
-    --primary-color: #8B7355;
-    --primary-dark: #6B5945;
-    --primary-light: #A68B6F;
-    --secondary-color: #2C2416;
-    --secondary-dark: #1A1410;
-    --secondary-light: #3A2F20;
-    --accent-color: #D4C4B0;
-    --accent-dark: #B8A898;
-    --accent-light: #E8E0D0;
-    --washed-blue: #7A8B99;
-    --faded-red: #A67C6C;
-    --vintage-beige: #E8DCC0;
+    /* Professional Color Palette */
+    --primary-color: #000000;
+    --primary-dark: #000000;
+    --primary-light: #333333;
+    --secondary-color: #6366f1;
+    --secondary-dark: #4f46e5;
+    --secondary-light: #818cf8;
+    --accent-color: #10b981;
+    --accent-dark: #059669;
+    --accent-light: #34d399;
+    --background-light: #ffffff;
+    --background-gray: #f9fafb;
+    --border-light: #e5e7eb;
+    --border-medium: #d1d5db;
     
     /* Music Platform Colors */
     --spotify-green: #1db954;
@@ -36,33 +37,31 @@
     --tiktok-pink: #ff0050;
     --twitter-black: #000000;
     
-    /* Neutral Colors - Kurt Cobain Grunge Theme */
-    --white: #F5F0E8;
-    --gray-50: #E8E0D0;
-    --gray-100: #D4C4B0;
-    --gray-200: #C0B098;
-    --gray-300: #AC9C80;
-    --gray-400: #988868;
-    --gray-500: #847450;
-    --gray-600: #6B5945;
-    --gray-700: #544835;
-    --gray-800: #3A2F20;
-    --gray-900: #2C2416;
-    --sepia-dark: #1A1410;
+    /* Neutral Colors - Professional Theme */
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --black: #000000;
     
-    /* Typography - Kurt Cobain Grunge Fonts */
-    --font-primary: 'Kalam', cursive;
-    --font-handwritten: 'Caveat', cursive;
-    --font-typewriter: 'Special Elite', cursive;
-    --font-journal: 'Homemade Apple', cursive;
-    --font-display: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Professional Fonts */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     
-    /* Kurt Cobain Visual Effects */
-    --grunge-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feBlend mode="multiply"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.08"/></svg>');
-    --film-grain: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="grain"><feTurbulence type="turbulence" baseFrequency="0.9" numOctaves="4" seed="5"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23grain)" opacity="0.15"/></svg>');
-    --vhs-distortion: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="vhs"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="noise" seed="1"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter><rect width="100" height="100" filter="url(%23vhs)" opacity="0.1"/></svg>');
-    --distress-filter: contrast(0.9) brightness(1.1) sepia(0.3);
-    --fade-animation: fade 4s infinite;
+    /* Professional Visual Effects */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -99,23 +98,12 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(139, 115, 85, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(122, 139, 153, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, var(--sepia-dark) 0%, var(--secondary-color) 50%, var(--secondary-light) 100%);
+    background: var(--background-light);
     min-height: 100vh;
-    color: var(--white);
-    position: relative;
-    color: var(--white);
+    color: var(--gray-900);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
-    /* Add subtle noise texture */
-    background-image: 
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"),
-        radial-gradient(circle at 20% 80%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
-        var(--secondary-color);
 }
 
 /* Loading Screen */
@@ -192,11 +180,10 @@ body {
     align-items: center;
     margin-bottom: var(--spacing-2xl);
     padding: var(--spacing-lg) var(--spacing-xl);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
 }
 
 .logo {
@@ -220,7 +207,7 @@ body {
 }
 
 .manage-btn {
-    background: var(--gray-700);
+    background: var(--primary-color);
     color: var(--white);
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -235,13 +222,13 @@ body {
 }
 
 .manage-btn:hover {
-    background: var(--gray-800);
+    background: var(--primary-dark);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-medium);
 }
 
 .edit-toggle {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     color: var(--white);
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -253,49 +240,24 @@ body {
 }
 
 .edit-toggle:hover {
-    background: var(--primary-dark);
+    background: var(--secondary-dark);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-medium);
 }
 
 /* Artist Profile Section - Punk Style */
 .artist-profile-section {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--accent-color);
-    border-radius: 0;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-2xl);
     margin-bottom: var(--spacing-2xl);
-    box-shadow: 0 8px 24px rgba(255, 0, 64, 0.3);
+    box-shadow: var(--shadow-medium);
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
-.artist-profile-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        from 0deg,
-        transparent,
-        var(--primary-color),
-        transparent,
-        var(--accent-color),
-        transparent
-    );
-    animation: rotate 20s linear infinite;
-    opacity: 0.1;
-    z-index: -1;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+/* Removed rotating gradient effect for professional look */
 
 .profile-image-wrapper {
     position: relative;
@@ -308,17 +270,14 @@ body {
     height: 150px;
     border-radius: var(--radius-full);
     object-fit: cover;
-    border: 4px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+    border: 3px solid var(--border-light);
+    box-shadow: var(--shadow-medium);
     transition: all 0.3s ease;
-    filter: grayscale(20%);
 }
 
 .profile-image:hover {
-    transform: scale(1.05) rotate(-2deg);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 30px rgba(255, 0, 64, 0.8);
-    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-large);
 }
 
 .verified-badge {
@@ -356,30 +315,16 @@ body {
     font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--gray-900);
     margin-bottom: var(--spacing-xs);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     position: relative;
-}
-
-.artist-info h1::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
 }
 }
 
 .artist-title {
     font-size: 1.25rem;
     font-weight: 500;
-    color: var(--secondary-color);
+    color: var(--gray-600);
     margin-bottom: var(--spacing-md);
 }
 
@@ -421,12 +366,11 @@ body {
 }
 
 .track-card {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--accent-color);
-    border-radius: 0;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: 0 8px 16px rgba(255, 0, 64, 0.3);
+    box-shadow: var(--shadow-medium);
     display: flex;
     gap: var(--spacing-lg);
     align-items: center;
@@ -435,26 +379,9 @@ body {
     overflow: hidden;
 }
 
-.track-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--primary-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.track-card:hover::before {
-    transform: scaleX(1);
-}
-
 .track-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(255, 0, 64, 0.5);
-    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
 }
 
 .track-artwork {
@@ -568,7 +495,7 @@ body {
     font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--gray-900);
     text-align: center;
     margin-bottom: var(--spacing-xl);
     letter-spacing: -0.02em;
@@ -587,16 +514,14 @@ body {
 }
 
 .streaming-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
 .streaming-card::before {
@@ -633,8 +558,8 @@ body {
 }
 
 .streaming-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
 }
 
 .streaming-header {
@@ -749,15 +674,13 @@ body {
 }
 
 .social-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
     transition: all var(--transition-normal);
     position: relative;
-    overflow: hidden;
 }
 
 .social-card::before {
@@ -786,8 +709,8 @@ body {
 }
 
 .social-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
 }
 
 .social-header {
@@ -929,12 +852,11 @@ body {
 }
 
 .tour-card, .booking-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
 }
 
 .tour-header, .booking-header {
@@ -1098,14 +1020,12 @@ body {
 }
 
 .merch-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
     position: relative;
-    overflow: hidden;
 }
 
 .featured-merch {
@@ -1247,12 +1167,11 @@ body {
 }
 
 .fan-club-card, .newsletter-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
 }
 
 .fan-club-header, .newsletter-header {
@@ -1368,19 +1287,18 @@ body {
 }
 
 .contact-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-medium);
     text-align: center;
     transition: all var(--transition-normal);
 }
 
 .contact-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-large);
 }
 
 .contact-icon {
@@ -1503,9 +1421,8 @@ body {
 
 /* Footer */
 .footer {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
     padding: var(--spacing-2xl);
     box-shadow: var(--shadow-lg);
