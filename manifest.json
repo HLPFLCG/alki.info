@@ -1,7 +1,7 @@
 {
   "name": "alki - musician",
   "short_name": "alki",
-  "description": "28 year old musician. Creating authentic music from the Pacific Northwest.",
+  "description": "28 ",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -15,7 +15,7 @@
       "name": "Listen to Music",
       "short_name": "Music",
       "description": "Stream alki's music on all platforms",
-      "url": "/?action=music",
+      "url": "https://open.spotify.com/album/468FaHLWX75g0RJdoEUABD?si=_v0Am_BwQauTs6DlhR4FQA",
       "icons": [
         {
           "src": "images/icons/music-96x96.png",
@@ -27,7 +27,7 @@
       "name": "Follow on Instagram",
       "short_name": "Instagram",
       "description": "Follow alki on Instagram",
-      "url": "/?action=instagram",
+      "url": "https://instagram.com/alkiotis",
       "icons": [
         {
           "src": "images/icons/instagram-96x96.png",
