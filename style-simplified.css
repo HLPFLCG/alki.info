@@ -72,15 +72,13 @@ header {
 
 .artist-name {
     font-size: 38px;
-    font-weight: 500;
-    margin-bottom: 8px;
+    font-weight: 600;
     color: var(--text-primary);
 }
 
 .artist-bio {
     font-size: 26px;
     color: var(--text-secondary);
-    margin-bottom: 0px;
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
