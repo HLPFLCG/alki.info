@@ -8,16 +8,16 @@
 }
 
 :root {
-    /* Spotify-Inspired Color Palette */
-    --primary-color: #1DB954;
-    --primary-dark: #1aa34a;
-    --primary-light: #1ed760;
-    --secondary-color: #191414;
+    /* Punk/Emo/Manly Color Palette */
+    --primary-color: #FF0040;
+    --primary-dark: #CC0033;
+    --primary-light: #FF1A4D;
+    --secondary-color: #0A0A0A;
     --secondary-dark: #000000;
-    --secondary-light: #282828;
-    --accent-color: #1DB954;
-    --accent-dark: #1aa34a;
-    --accent-light: #1ed760;
+    --secondary-light: #1A1A1A;
+    --accent-color: #8B0000;
+    --accent-dark: #660000;
+    --accent-light: #A52A2A;
     
     /* Music Platform Colors */
     --spotify-green: #1db954;
@@ -33,22 +33,23 @@
     --tiktok-pink: #ff0050;
     --twitter-black: #000000;
     
-    /* Neutral Colors - Spotify Theme */
-    --white: #ffffff;
-    --gray-50: #ffffff;
-    --gray-100: #f5f5f5;
-    --gray-200: #e5e5e5;
-    --gray-300: #d4d4d4;
-    --gray-400: #a3a3a3;
-    --gray-500: #737373;
-    --gray-600: #525252;
-    --gray-700: #404040;
-    --gray-800: #282828;
-    --gray-900: #191414;
+    /* Neutral Colors - Dark Edgy Theme */
+    --white: #E0E0E0;
+    --gray-50: #D0D0D0;
+    --gray-100: #B8B8B8;
+    --gray-200: #A0A0A0;
+    --gray-300: #888888;
+    --gray-400: #707070;
+    --gray-500: #585858;
+    --gray-600: #404040;
+    --gray-700: #2A2A2A;
+    --gray-800: #1A1A1A;
+    --gray-900: #0A0A0A;
     
-    /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Punk/Edgy Fonts */
+    --font-primary: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Bebas Neue', cursive;
+    --font-accent: 'Oswald', sans-serif;
     
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -85,12 +86,21 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background: var(--secondary-color);
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+        var(--secondary-color);
     min-height: 100vh;
     color: var(--white);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
+    /* Add subtle noise texture */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 64, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+        var(--secondary-color);
 }
 
 /* Loading Screen */
@@ -116,7 +126,7 @@ body {
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid var(--gray-700);
+    border: 4px solid var(--gray-600);
     border-top: 4px solid var(--primary-color);
     border-radius: var(--radius-full);
     animation: spin 1s linear infinite;
@@ -233,17 +243,43 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* Artist Profile Section */
+/* Artist Profile Section - Punk Style */
 .artist-profile-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-lg);
+    border: 2px solid var(--accent-color);
+    border-radius: 0;
     padding: var(--spacing-2xl);
     margin-bottom: var(--spacing-2xl);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(255, 0, 64, 0.3);
     text-align: center;
     position: relative;
+    overflow: hidden;
+}
+
+.artist-profile-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        var(--primary-color),
+        transparent,
+        var(--accent-color),
+        transparent
+    );
+    animation: rotate 20s linear infinite;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .profile-image-wrapper {
@@ -258,13 +294,16 @@ body {
     border-radius: var(--radius-full);
     object-fit: cover;
     border: 4px solid var(--primary-color);
-    box-shadow: var(--shadow-xl);
-    transition: all var(--transition-normal);
+    box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
 }
 
 .profile-image:hover {
-    transform: scale(1.05);
-    border-color: var(--secondary-color);
+    transform: scale(1.05) rotate(-2deg);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(255, 0, 64, 0.8);
+    filter: grayscale(0%);
 }
 
 .verified-badge {
@@ -302,9 +341,24 @@ body {
     font-family: var(--font-display);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.artist-info h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
 }
 
 .artist-title {
@@ -352,21 +406,40 @@ body {
 }
 
 .track-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-lg);
+    border: 2px solid var(--accent-color);
+    border-radius: 0;
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 16px rgba(255, 0, 64, 0.3);
     display: flex;
     gap: var(--spacing-lg);
     align-items: center;
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.track-card:hover::before {
+    transform: scaleX(1);
 }
 
 .track-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(255, 0, 64, 0.5);
+    border-color: var(--primary-color);
 }
 
 .track-artwork {
@@ -1637,32 +1710,67 @@ body {
 }
 
 .btn {
-    padding: var(--spacing-md) var(--spacing-lg);
-    border: none;
-    border-radius: var(--radius-md);
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all var(--transition-fast);
-    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
     background: var(--primary-color);
     color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 0, 64, 0.4);
+    border-color: var(--primary-light);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .btn-secondary {
-    background: var(--gray-100);
-    color: var(--gray-700);
+    background: transparent;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .btn-secondary:hover {
-    background: var(--gray-200);
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 0, 64, 0.4);
 }
 
 /* Responsive Design */
