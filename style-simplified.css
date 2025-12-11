@@ -55,12 +55,12 @@ header {
 }
 
 .profile-image-wrapper {
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto 20px;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 3px solid var(--border);
+    border: 0px clear var(--border);
     background: var(--surface);
 }
 
