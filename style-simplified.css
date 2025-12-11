@@ -1,0 +1,290 @@
+/* Simplified Alki Styles - Clean & Visible */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Simple Color Palette */
+:root {
+    --primary: #1a1a1a;
+    --secondary: #6366f1;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Body & Base */
+body {
+    font-family: var(--font);
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Simple Container */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Clean Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 3px solid var(--border);
+    background: var(--surface);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-name {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.artist-bio {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Clean Stats */
+.artist-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Simple Links */
+.links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.link-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+    min-height: 56px;
+}
+
+.link-card:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.link-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.link-text {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.link-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.link-card:hover .link-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Featured Track - Simplified */
+.featured-track {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.track-artwork {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.track-artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.track-artist {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.play-button {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.play-button:hover {
+    background: #5558e3;
+}
+
+/* Clean Footer */
+footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Hide Complex Elements */
+.bg-animation,
+.loading-screen,
+.analytics-panel,
+.theme-switcher,
+.admin-controls {
+    display: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    .artist-stats {
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 16px;
+    }
+    
+    .artist-name {
+        font-size: 24px;
+    }
+    
+    .link-card {
+        padding: 14px 16px;
+        min-height: 52px;
+    }
+}
+
+/* Focus States for Accessibility */
+.link-card:focus,
+.play-button:focus,
+.social-link:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
