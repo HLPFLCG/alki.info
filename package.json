@@ -2,39 +2,10 @@
   "name": "alki-info",
   "version": "1.0.0",
   "description": "Professional link-in-bio for musician alki",
-  "main": "script.js",
+  "main": "index.html",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "lint:html": "html-validate *.html",
-    "lint:css": "stylelint *.css",
-    "lint:js": "eslint *.js",
-    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
-    "build": "echo 'Build completed'",
-    "dev": "python -m http.server 8080",
-    "lighthouse": "lhci autorun"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.0",
-    "eslint": "^8.40.0",
-    "html-validate": "^8.0.0",
-    "jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.5.0",
-    "jsdom": "^22.0.0",
-    "stylelint": "^15.6.0",
-    "stylelint-config-standard": "^33.0.0",
-    "typescript": "^5.0.0",
-    "@lhci/cli": "^0.12.0"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["./tests/test-setup.js"],
-    "collectCoverageFrom": [
-      "*.js",
-      "!tests/**",
-      "!node_modules/**"
-    ]
+    "start": "python -m http.server 8080",
+    "build": "echo 'Static site - no build needed'"
   },
   "keywords": [
     "music",
@@ -44,11 +15,5 @@
     "hlpfl"
   ],
   "author": "HLPFL",
-  "license": "MIT",
-  "overrides": {
-    "cookie": "^0.7.1",
-    "tar-fs": "^3.0.0",
-    "tmp": "^0.2.3",
-    "ws": "^8.18.0"
-  }
+  "license": "MIT"
 }
