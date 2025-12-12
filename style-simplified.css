@@ -9,63 +9,63 @@
 }
 
 :root {
-    /* Rock Aesthetic Color Scheme */
-    --bg-primary: #1a1814;
-    --bg-secondary: #2a2419;
-    --bg-glass: rgba(139, 119, 101, 0.1);
-    --text-primary: #f4f1ea;
-    --text-secondary: rgba(244, 241, 234, 0.7);
-    --text-muted: rgba(244, 241, 234, 0.4);
+    /* Modern Rock Color Scheme - Clean & Professional */
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a1f2e;
+    --bg-glass: rgba(31, 41, 55, 0.3);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.4);
     
-    /* Rock & Earth Tones */
-    --accent-primary: #d4a574;
-    --accent-secondary: #8b7355;
-    --accent-tertiary: #6b8e23;
-    --accent-warm: #c87a5f;
-    --accent-cool: #7a9e9f;
+    /* Modern Rock & Alternative Colors */
+    --accent-primary: #3b82f6;
+    --accent-secondary: #8b5cf6;
+    --accent-tertiary: #ec4899;
+    --accent-warm: #f59e0b;
+    --accent-cool: #10b981;
     
-    /* Natural Gradients */
-    --accent-gradient: linear-gradient(135deg, #d4a574, #8b7355);
-    --accent-gradient-warm: linear-gradient(135deg, #c87a5f, #d4a574);
-    --accent-gradient-cool: linear-gradient(135deg, #7a9e9f, #6b8e23);
+    /* Clean Gradients */
+    --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --accent-gradient-warm: linear-gradient(135deg, #f59e0b, #ef4444);
+    --accent-gradient-cool: linear-gradient(135deg, #10b981, #3b82f6);
     
-    /* Industrial & Natural Elements */
-    --border-color: rgba(212, 165, 116, 0.2);
-    --shadow-glow: 0 0 40px rgba(212, 165, 116, 0.2);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
-    --shadow-warm: 0 0 30px rgba(200, 122, 95, 0.3);
+    /* Modern Shadows & Borders */
+    --border-color: rgba(59, 130, 246, 0.2);
+    --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.3);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-warm: 0 0 30px rgba(245, 158, 11, 0.2);
     
-    /* Special Tones for Weed & Tofu Elements */
-    --green-natural: #6b8e23;
-    --cream-natural: #f4f1ea;
-    --earth-dark: #3e2723;
-    --stone-gray: #5d5248;
+    /* Neutral & Natural Tones */
+    --gray-dark: #1f2937;
+    --gray-medium: #374151;
+    --gray-light: #6b7280;
+    --accent-bright: #60a5fa;
     
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Light Theme - Natural Rock Aesthetic */
+/* Light Theme - Modern & Clean */
 [data-theme="light"] {
-    --bg-primary: #f4f1ea;
-    --bg-secondary: #faf8f3;
-    --bg-glass: rgba(139, 119, 101, 0.05);
-    --text-primary: #2a2419;
-    --text-secondary: rgba(42, 36, 25, 0.7);
-    --text-muted: rgba(42, 36, 25, 0.4);
-    --accent-primary: #8b7355;
-    --accent-secondary: #d4a574;
-    --accent-tertiary: #6b8e23;
-    --accent-warm: #c87a5f;
-    --accent-cool: #7a9e9f;
-    --accent-gradient: linear-gradient(135deg, #8b7355, #d4a574);
-    --accent-gradient-warm: linear-gradient(135deg, #c87a5f, #8b7355);
-    --accent-gradient-cool: linear-gradient(135deg, #7a9e9f, #6b8e23);
-    --border-color: rgba(139, 115, 85, 0.2);
-    --shadow-glow: 0 0 40px rgba(212, 165, 116, 0.15);
-    --shadow-card: 0 8px 32px rgba(42, 36, 25, 0.15);
-    --shadow-warm: 0 0 30px rgba(200, 122, 95, 0.2);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-glass: rgba(243, 244, 246, 0.7);
+    --text-primary: #111827;
+    --text-secondary: rgba(17, 24, 39, 0.7);
+    --text-muted: rgba(17, 24, 39, 0.4);
+    --accent-primary: #3b82f6;
+    --accent-secondary: #8b5cf6;
+    --accent-tertiary: #ec4899;
+    --accent-warm: #f59e0b;
+    --accent-cool: #10b981;
+    --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --accent-gradient-warm: linear-gradient(135deg, #f59e0b, #ef4444);
+    --accent-gradient-cool: linear-gradient(135deg, #10b981, #3b82f6);
+    --border-color: rgba(59, 130, 246, 0.2);
+    --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-warm: 0 0 30px rgba(245, 158, 11, 0.15);
 }
 
 /* Base Body Styles */
@@ -77,6 +77,40 @@ body {
     overflow-x: hidden;
     cursor: none;
     transition: var(--transition-smooth);
+}
+
+/* Hide custom cursor on mobile for better performance */
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+}
+
+/* Reduce animations on mobile for Safari performance */
+@media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-name,
+    .loading-text {
+        animation: none !important;
+    }
+    
+    .profile-frame {
+        animation: none !important;
+    }
+    
+    .particle,
+    .gradient-orb {
+        display: none !important;
+    }
 }
 
 /* Custom Cursor */
@@ -211,7 +245,7 @@ body {
     animation: float 20s infinite linear;
 }
 
-/* Natural particle colors */
+/* Modern particle colors - Optimized for mobile */
 #particle1 { 
     top: 20%; 
     left: 10%; 
@@ -221,39 +255,39 @@ body {
 #particle2 { 
     top: 50%; 
     left: 80%; 
-    animation-delay: 2s; 
-    background: var(--accent-warm);
+    animation-delay: 3s; 
+    background: var(--accent-secondary);
 }
 #particle3 { 
     top: 80%; 
     left: 30%; 
-    animation-delay: 4s; 
-    background: var(--green-natural);
-}
-#particle4 { 
-    top: 30%; 
-    left: 60%; 
     animation-delay: 6s; 
-    background: var(--accent-cool);
-}
-#particle5 { 
-    top: 70%; 
-    left: 20%; 
-    animation-delay: 8s; 
-    background: var(--accent-secondary);
+    background: var(--accent-tertiary);
 }
 
 .gradient-orb {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--accent-primary) 0%, var(--green-natural) 50%, transparent 70%);
-    opacity: 0.08;
+    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+    opacity: 0.05;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: orbFloat 15s ease-in-out infinite;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+
+/* Hide heavy animations on mobile for performance */
+@media (max-width: 768px) {
+    .particle,
+    .gradient-orb {
+        display: none !important;
+    }
+    
+    .animated-bg {
+        background: none !important;
+    }
 }
 
 /* Theme Toggle */
@@ -481,15 +515,15 @@ body {
     border-radius: 12px;
 }
 
-/* Exclusive Drop - Earthy Rock Vibe */
+/* Exclusive Drop - Modern & Clean */
 .exclusive-drop {
-    background: linear-gradient(135deg, var(--earth-dark), var(--stone-gray));
+    background: var(--accent-gradient);
     border-radius: 24px;
     padding: 40px 32px;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(212, 165, 116, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .exclusive-drop::before {
@@ -499,7 +533,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, var(--accent-warm) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     opacity: 0.1;
     animation: float 15s ease-in-out infinite;
 }
@@ -670,30 +704,30 @@ body {
     transform: translateX(4px);
 }
 
-/* Platform-Specific Rock Aesthetic Colors */
+/* Platform-Specific Modern Colors */
 .instagram-link .link-icon { 
-    background: linear-gradient(135deg, var(--accent-warm), var(--accent-primary));
-    border: 2px solid rgba(212, 165, 116, 0.3);
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+    border: 2px solid rgba(221, 42, 123, 0.3);
 }
 
 .spotify-link .link-icon { 
-    background: var(--green-natural);
-    border: 2px solid rgba(107, 142, 35, 0.3);
+    background: #1db954;
+    border: 2px solid rgba(29, 185, 84, 0.3);
 }
 
 .apple-link .link-icon { 
-    background: var(--earth-dark);
-    border: 2px solid rgba(62, 39, 35, 0.3);
+    background: #000000;
+    border: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 .grouped-link .link-icon { 
-    background: var(--accent-gradient-cool);
-    border: 2px solid rgba(122, 158, 159, 0.3);
+    background: var(--accent-gradient);
+    border: 2px solid rgba(59, 130, 246, 0.3);
 }
 
 .label-link .link-icon { 
-    background: var(--stone-gray);
-    border: 2px solid rgba(93, 82, 72, 0.3);
+    background: var(--gray-dark);
+    border: 2px solid rgba(31, 41, 55, 0.3);
 }
 
 /* Footer */

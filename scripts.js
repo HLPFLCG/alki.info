@@ -20,72 +20,114 @@ class AlkiWebsite {
         this.initAnalytics();
     }
 
-    // Loading Screen Management
+    // Loading Screen Management - Fixed for Safari
     setupLoadingScreen() {
         const loadingScreen = document.querySelector('.loading-screen');
         const loadingProgress = document.querySelector('.loading-progress');
         let progress = 0;
+        let loadingInterval;
+
+        // Skip loading screen on mobile for better performance
+        if (window.innerWidth <= 768) {
+            loadingScreen.style.display = 'none';
+            document.body.classList.remove('loading');
+            this.triggerPageLoadAnimations();
+            return;
+        }
 
         const updateProgress = () => {
-            progress += Math.random() * 30;
+            progress += 15;
             if (progress > 100) progress = 100;
             
-            loadingProgress.style.width = `${progress}%`;
+            if (loadingProgress) {
+                loadingProgress.style.width = `${progress}%`;
+            }
             
             if (progress < 100) {
-                setTimeout(updateProgress, 100);
+                loadingInterval = setTimeout(updateProgress, 50);
             } else {
                 setTimeout(() => {
-                    loadingScreen.classList.add('hidden');
+                    if (loadingScreen) {
+                        loadingScreen.classList.add('hidden');
+                    }
                     document.body.classList.remove('loading');
                     this.triggerPageLoadAnimations();
-                }, 500);
+                }, 300);
             }
         };
 
-        setTimeout(updateProgress, 100);
+        loadingInterval = setTimeout(updateProgress, 100);
+        
+        // Cleanup function to prevent memory leaks
+        window.addEventListener('beforeunload', () => {
+            if (loadingInterval) {
+                clearTimeout(loadingInterval);
+            }
+        });
     }
 
-    // Custom Cursor
+    // Custom Cursor - Optimized for Safari
     setupCustomCursor() {
+        // Skip custom cursor on mobile and Safari for performance
+        if (window.innerWidth <= 768 || /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+            document.body.style.cursor = 'auto';
+            return;
+        }
+
         const cursor = document.querySelector('.custom-cursor');
+        if (!cursor) return;
+
         const cursorDot = cursor.querySelector('.cursor-dot');
         const cursorRing = cursor.querySelector('.cursor-ring');
 
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
+        let rafId;
 
-        document.addEventListener('mousemove', (e) => {
+        const handleMouseMove = (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-        });
+        };
 
         const animateCursor = () => {
             cursorX += (mouseX - cursorX) * 0.1;
             cursorY += (mouseY - cursorY) * 0.1;
 
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-            cursorRing.style.left = `${cursorX}px`;
-            cursorRing.style.top = `${cursorY}px`;
+            if (cursorDot) {
+                cursorDot.style.left = `${mouseX}px`;
+                cursorDot.style.top = `${mouseY}px`;
+            }
+            if (cursorRing) {
+                cursorRing.style.left = `${cursorX}px`;
+                cursorRing.style.top = `${cursorY}px`;
+            }
 
-            requestAnimationFrame(animateCursor);
+            rafId = requestAnimationFrame(animateCursor);
         };
 
-        animateCursor();
+        document.addEventListener('mousemove', handleMouseMove);
+        rafId = requestAnimationFrame(animateCursor);
 
         // Hover effects
         const hoverElements = document.querySelectorAll('a, button, .link-card, .social-link');
         hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            el.addEventListener('mouseenter', () => {
+                if (cursor) cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                if (cursor) cursor.classList.remove('hover');
+            });
         });
 
-        // Hide cursor on mobile
-        if (window.innerWidth <= 768) {
-            cursor.style.display = 'none';
-            document.body.style.cursor = 'auto';
-        }
+        // Cleanup
+        const cleanup = () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+            }
+        };
+
+        window.addEventListener('beforeunload', cleanup);
     }
 
     // Theme Toggle
@@ -108,12 +150,25 @@ class AlkiWebsite {
         });
     }
 
-    // Scroll Animations
+    // Scroll Animations - Optimized for mobile Safari
     setupScrollAnimations() {
+        // Skip heavy animations on mobile
+        if (window.innerWidth <= 768) {
+            return;
+        }
+
         let ticking = false;
+        let lastKnownScrollPosition = 0;
 
         const updateScrollEffects = () => {
             const scrolled = window.pageYOffset;
+            
+            // Skip if scroll position hasn't changed significantly
+            if (Math.abs(scrolled - lastKnownScrollPosition) < 5) {
+                ticking = false;
+                return;
+            }
+
             const parallaxElements = document.querySelectorAll('.gradient-orb, .particle');
             
             parallaxElements.forEach((el, index) => {
@@ -130,6 +185,7 @@ class AlkiWebsite {
                 heroSection.style.opacity = 1 - (scrolled * 0.001);
             }
 
+            lastKnownScrollPosition = scrolled;
             ticking = false;
         };
 
@@ -140,7 +196,8 @@ class AlkiWebsite {
             }
         };
 
-        window.addEventListener('scroll', requestTick);
+        // Use passive listeners for better performance
+        window.addEventListener('scroll', requestTick, { passive: true });
     }
 
     // Count Up Animation for Stats
