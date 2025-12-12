@@ -11,7 +11,7 @@
 :root {
     --primary: #1a1a1a;
     --secondary: #6366f1;
-    --background: #ffffff;
+    --background: #f8f9fa;
     --surface: #f8f9fa;
     --text-primary: #1a1a1a;
     --text-secondary: #6b7280;
@@ -39,7 +39,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding-top: 10;
-    background: #f8f9fa;;
+    background: #f8f9fa;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
