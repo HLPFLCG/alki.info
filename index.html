@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alki</title>
-    <meta name="description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram for daily updates and behind the scenes content.">
+    <title>alki • Rock Artist</title>
+    <meta name="description" content="alki - boundary-pushing rock music artist. Stream exclusive tracks, join the community, and experience the future of rock.">
     
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="alki, music artist, rock music, spotify, apple music, instagram, hlpfl">
+    <meta name="keywords" content="alki, rock music, alternative, indie artist, music tech, web3 music">
     <meta name="author" content="alki">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="alki">
-    <meta property="og:description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram for daily updates.">
+    <meta property="og:title" content="alki • Future of Rock">
+    <meta property="og:description" content="Boundary-pushing rock music. Exclusive tracks, community access, and the future of music.">
     <meta property="og:image" content="https://alki.info/tac.jpeg">
     <meta property="og:url" content="https://alki.info">
     <meta property="og:type" content="website">
@@ -21,34 +21,82 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="alki - Music Artist">
-    <meta name="twitter:description" content="alki - Music artist creating rock music. Stream on Spotify, Apple Music, and follow on Instagram.">
+    <meta name="twitter:title" content="alki • Future of Rock">
+    <meta name="twitter:description" content="Boundary-pushing rock music. Exclusive tracks, community access.">
     <meta name="twitter:image" content="https://alki.info/tac.jpeg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://alki.info">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logov1/alklilogo.webp">
+    <link rel="icon" type="image/png" href="alkilogo.png">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="style-simplified.css">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="style-simplified.css" as="style">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style-simplified.css">
     
     <!-- Custom Scripts -->
     <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
     <script src="scripts.js" defer></script>
 </head>
-<body>
-    <!-- Structured Data for SEO -->
+<body class="loading">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="newalkilogoscreens.png" alt="alki" class="loading-image">
+            </div>
+            <div class="loading-text">
+                <span class="loading-letter">a</span>
+                <span class="loading-letter">l</span>
+                <span class="loading-letter">k</span>
+                <span class="loading-letter">i</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particle" id="particle1"></div>
+        <div class="particle" id="particle2"></div>
+        <div class="particle" id="particle3"></div>
+        <div class="particle" id="particle4"></div>
+        <div class="particle" id="particle5"></div>
+        <div class="gradient-orb"></div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "MusicGroup",
         "name": "alki",
-        "description": "Music artist creating rock music",
+        "description": "Boundary-pushing rock music artist",
         "image": "https://alki.info/tac.jpeg",
         "url": "https://alki.info",
         "sameAs": [
@@ -79,46 +127,85 @@
 </div>
 
     <div class="container">
-        <header>
-            <!-- Artist Logo Section -->
-            <div class="artist-logo-wrapper">
-                <img src="images/logov1/alklilogo.webp" 
-                     alt="alki logo" 
-                     class="artist-logo">
-            </div>
-            
-            <div class="profile-image-wrapper">
-                <img src="tac.jpeg" 
-                     alt="alki" 
-                     class="profile-image"
-                     id="header-image">
-            </div>
-            
-            <div class="artist-stats">
-                <div class="stat">
-                    <div class="stat-number">37</div>
-                    <div class="stat-label">Songs</div>
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">
+                        <span class="name-letter">a</span>
+                        <span class="name-letter">l</span>
+                        <span class="name-letter">k</span>
+                        <span class="name-letter">i</span>
+                    </h1>
+                    <p class="hero-tagline">rock • weed • tofu</p>
+                    <p class="hero-description">boundary-pushing music for the digital age</p>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">48K</div>
-                    <div class="stat-label">Listeners</div>
+                
+                <div class="hero-visual">
+                    <div class="profile-3d">
+                        <div class="profile-frame">
+                            <img src="tac.jpeg" 
+                                 alt="alki" 
+                                 class="profile-image"
+                                 loading="lazy">
+                            <div class="profile-glow"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">2.2M</div>
-                    <div class="stat-label">Plays</div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-container">
+                <div class="stat-item" data-count="37">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">songs</span>
+                </div>
+                <div class="stat-item" data-count="48000">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">listeners</span>
+                </div>
+                <div class="stat-item" data-count="2200000">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">plays</span>
                 </div>
             </div>
         </header>
 
-        <main>
-            <!-- Free Unreleased Song Lead Collector -->
-            <section class="free-song-section">
-                <div class="free-song-content">
-                    <h2 class="free-song-title">🎵 Free Unreleased Song</h2>
-                    <p class="free-song-description">
-                        Get exclusive access to an unreleased track - only available here! Join the community to download for free.
-                    </p>
-                    <div class="free-song-embed">
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Featured Release -->
+            <section class="featured-release">
+                <div class="section-header">
+                    <h2 class="section-title">latest release</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="release-embed">
+                    <iframe data-testid="embed-iframe" 
+                            src="https://open.spotify.com/embed/album/468FaHLWX75g0RJdoEUABD?utm_source=generator&theme=0" 
+                            width="100%" 
+                            height="352" 
+                            frameBorder="0" 
+                            allowfullscreen="" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy"
+                            class="spotify-embed">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Exclusive Drop -->
+            <section class="exclusive-drop">
+                <div class="exclusive-content">
+                    <div class="exclusive-header">
+                        <div class="exclusive-badge">🔥 exclusive</div>
+                        <h2 class="exclusive-title">free unreleased track</h2>
+                        <p class="exclusive-description">
+                            join the inner circle for instant access to music you won't find anywhere else
+                        </p>
+                    </div>
+                    
+                    <div class="exclusive-embed">
                         <iframe src="https://app.grouped.com/alki/s/ri2rk6" 
                                 width="100%" 
                                 height="400" 
@@ -127,18 +214,19 @@
                                 class="grouped-embed">
                         </iframe>
                     </div>
-                    <div class="free-song-benefits">
-                        <div class="benefit-item">
-                            <i class="fas fa-download"></i>
-                            <span>Instant Download</span>
+                    
+                    <div class="exclusive-features">
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>instant access</span>
                         </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-users"></i>
-                            <span>Join the Community</span>
+                        <div class="feature-item">
+                            <i class="fas fa-crown"></i>
+                            <span>community member</span>
                         </div>
-                        <div class="benefit-item">
+                        <div class="feature-item">
                             <i class="fas fa-gift"></i>
-                            <span>Exclusive Content</span>
+                            <span>exclusive content</span>
                         </div>
                     </div>
                 </div>
@@ -263,63 +351,90 @@
                 </div>
             </a>
 
-            <a href="https://twitter.com/YOUR_TWITTER" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="twitter" data-visible="false">
-                <div class="link-icon" style="color: #1DA1F2;">
-                    <i class="fab fa-twitter"></i>
-                </div>
-                <div>
-                    <div class="link-text">Twitter/X</div>
-                    <div class="link-description">Thoughts & random</div>
-                </div>
-            </a>
+                    <a href="https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl?si=90TnhiklR9S8PBOtj8RkOg" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="link-card spotify-link"
+                       data-platform="spotify">
+                        <div class="link-icon">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <div class="link-content">
+                            <span class="link-title">spotify</span>
+                            <span class="link-subtitle">stream all tracks</span>
+                        </div>
+                        <div class="link-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
 
             
 
-            <a href="https://YOUR_TICKETING_SITE.com" target="_blank" rel="noopener noreferrer" class="link-card" data-platform="shows" data-visible="false">
-                <div class="link-icon" style="color: #6366f1;">
-                    <i class="fas fa-ticket-alt"></i>
+                    <a href="https://hlpfl.org" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="link-card label-link"
+                       data-platform="label">
+                        <div class="link-icon">
+                            <img src="blacklogonobackgroudn.svg" alt="HLPFL" class="platform-logo">
+                        </div>
+                        <div class="link-content">
+                            <span class="link-title">hlpfl</span>
+                            <span class="link-subtitle">label & management</span>
+                        </div>
+                        <div class="link-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
                 </div>
-                <div>
-                    <div class="link-text">Shows</div>
-                    <div class="link-description">Live dates & tickets</div>
-                </div>
-            </a>
             </section>
-
         </main>
 
-        <footer>
-            <div class="social-links">
-                <a href="https://instagram.com/alkiotis" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl?si=90TnhiklR9S8PBOtj8RkOg" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify">
-                    <i class="fab fa-spotify"></i>
-                </a>
-                <a href="https://app.grouped.com/everythingalki" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Grouped">
-                    <div class="link-icon" style="color: #1db954;">
-                        <img src="groupedlogo.png" alt="Grouped" style="width: 24px; height: 24px; border-radius: 4px; object-fit: cover;">
-                    </div>
-                </a>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://instagram.com/alkiotis" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://open.spotify.com/artist/1Jof1vMpSF5pIWUvG9cizl?si=90TnhiklR9S8PBOtj8RkOg" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                    <a href="https://app.grouped.com/everythingalki" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Grouped">
+                        <img src="groupedlogo.png" alt="Grouped" class="footer-logo">
+                    </a>
+                </div>
+                
+                <div class="footer-legal">
+                    <a href="https://hlpfl.org/privacy" target="_blank" rel="noopener noreferrer" class="legal-link">Privacy</a>
+                    <span class="separator">•</span>
+                    <a href="https://hlpfl.org/terms" target="_blank" rel="noopener noreferrer" class="legal-link">Terms</a>
+                    <span class="separator">•</span>
+                    <button id="cookieSettings" class="cookie-settings-btn">Cookies</button>
+                </div>
+                
+                <p class="copyright">© 2024 alki • HLPFL</p>
             </div>
-
-            <div class="legal-links">
-                <a href="https://hlpfl.org/privacy-policy" target="_blank" rel="noopener noreferrer" class="legal-link">Privacy Policy</a>
-                <span class="separator">•</span>
-                <a href="https://hlpfl.org/terms-of-service" target="_blank" rel="noopener noreferrer" class="legal-link">Terms of Service</a>
-                <span class="separator">•</span>
-                <button id="cookie-settings" class="cookie-settings-btn">Cookie Settings</button>
-            </div>
-            
-            <p class="copyright">© 2024 alki • HLPFL</p>
         </footer>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>This site uses cookies to enhance your experience. By continuing, you agree to our use of cookies.</p>
+            <div class="cookie-actions">
+                <button id="accept-cookies" class="cookie-btn accept">Accept</button>
+                <button id="decline-cookies" class="cookie-btn decline">Decline</button>
+                <a href="https://hlpfl.org/privacy" target="_blank" class="cookie-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-M8PZP937');</script>
-    <!-- End Google Tag Manager -->
 </body>
 </html>
