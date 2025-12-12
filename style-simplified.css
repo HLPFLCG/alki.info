@@ -25,7 +25,7 @@
     --accent-cool: #10b981;
     
     /* Clean Gradients */
-    --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --accent-gradient: linear-gradient(135deg, #113671, #1c0d3f);
     --accent-gradient-warm: linear-gradient(135deg, #f59e0b, #ef4444);
     --accent-gradient-cool: linear-gradient(135deg, #10b981, #3b82f6);
     
@@ -77,17 +77,6 @@ body {
     overflow-x: hidden;
     cursor: none;
     transition: var(--transition-smooth);
-}
-
-/* Hide custom cursor on mobile for better performance */
-@media (max-width: 768px) {
-    .custom-cursor {
-        display: none !important;
-    }
-    
-    body {
-        cursor: auto !important;
-    }
 }
 
 /* Reduce animations on mobile for Safari performance */
@@ -251,62 +240,6 @@ body {
         background: none !important;
     }
 }
-
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-    background: var(--bg-glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 100;
-    transition: var(--transition-smooth);
-}
-
-.theme-toggle:hover {
-    background: var(--bg-secondary);
-    transform: scale(1.1);
-}
-
-.theme-toggle i {
-    font-size: 20px;
-    color: var(--text-primary);
-    transition: opacity 0.3s ease;
-}
-
-.theme-toggle .fa-sun { display: none; }
-/* Dark Theme - Modern & Clean */
-[data-theme="dark"] {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-glass: rgba(30, 41, 59, 0.5);
-    --text-primary: #f8fafc;
-    --text-secondary: rgba(248, 250, 252, 0.8);
-    --text-muted: rgba(248, 250, 252, 0.5);
-    --accent-primary: #60a5fa;
-    --accent-secondary: #a78bfa;
-    --accent-tertiary: #f472b6;
-    --accent-warm: #fbbf24;
-    --accent-cool: #34d399;
-    --accent-gradient: linear-gradient(135deg, #60a5fa, #a78bfa);
-    --accent-gradient-warm: linear-gradient(135deg, #fbbf24, #f87171);
-    --accent-gradient-cool: linear-gradient(135deg, #34d399, #60a5fa);
-    --border-color: rgba(96, 165, 250, 0.2);
-    --shadow-glow: 0 0 40px rgba(96, 165, 250, 0.2);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --shadow-warm: 0 0 30px rgba(251, 191, 36, 0.2);
-}
-
-[data-theme="light"] .theme-toggle .fa-sun { display: block; }
-[data-theme="light"] .theme-toggle .fa-moon { display: none; }
 
 /* Main Container */
 .container {

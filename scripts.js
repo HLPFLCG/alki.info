@@ -66,26 +66,6 @@ class AlkiWebsite {
         });
     }
 
-    // Theme Toggle
-    setupThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-
-        // Check for saved theme preference, default to light
-        const savedTheme = localStorage.getItem('alki-theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('alki-theme', newTheme);
-            
-            this.triggerThemeChangeAnimation(newTheme);
-        });
-    }
-
     // Scroll Animations - Optimized for mobile Safari
     setupScrollAnimations() {
         // Skip heavy animations on mobile
