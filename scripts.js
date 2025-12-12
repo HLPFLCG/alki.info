@@ -135,8 +135,8 @@ class AlkiWebsite {
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('alki-theme') || 'dark';
+        // Check for saved theme preference, default to light
+        const savedTheme = localStorage.getItem('alki-theme') || 'light';
         html.setAttribute('data-theme', savedTheme);
 
         themeToggle.addEventListener('click', () => {

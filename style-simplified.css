@@ -9,13 +9,13 @@
 }
 
 :root {
-    /* Modern Rock Color Scheme - Clean & Professional */
-    --bg-primary: #0f1419;
-    --bg-secondary: #1a1f2e;
-    --bg-glass: rgba(31, 41, 55, 0.3);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-muted: rgba(255, 255, 255, 0.4);
+    /* Off-White Theme - Clean & Professional */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-glass: rgba(243, 244, 246, 0.7);
+    --text-primary: #111827;
+    --text-secondary: rgba(17, 24, 39, 0.7);
+    --text-muted: rgba(17, 24, 39, 0.4);
     
     /* Modern Rock & Alternative Colors */
     --accent-primary: #3b82f6;
@@ -31,9 +31,9 @@
     
     /* Modern Shadows & Borders */
     --border-color: rgba(59, 130, 246, 0.2);
-    --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.3);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --shadow-warm: 0 0 30px rgba(245, 158, 11, 0.2);
+    --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-warm: 0 0 30px rgba(245, 158, 11, 0.15);
     
     /* Neutral & Natural Tones */
     --gray-dark: #1f2937;
@@ -321,6 +321,28 @@ body {
 }
 
 .theme-toggle .fa-sun { display: none; }
+/* Dark Theme - Modern & Clean */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-glass: rgba(30, 41, 59, 0.5);
+    --text-primary: #f8fafc;
+    --text-secondary: rgba(248, 250, 252, 0.8);
+    --text-muted: rgba(248, 250, 252, 0.5);
+    --accent-primary: #60a5fa;
+    --accent-secondary: #a78bfa;
+    --accent-tertiary: #f472b6;
+    --accent-warm: #fbbf24;
+    --accent-cool: #34d399;
+    --accent-gradient: linear-gradient(135deg, #60a5fa, #a78bfa);
+    --accent-gradient-warm: linear-gradient(135deg, #fbbf24, #f87171);
+    --accent-gradient-cool: linear-gradient(135deg, #34d399, #60a5fa);
+    --border-color: rgba(96, 165, 250, 0.2);
+    --shadow-glow: 0 0 40px rgba(96, 165, 250, 0.2);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-warm: 0 0 30px rgba(251, 191, 36, 0.2);
+}
+
 [data-theme="light"] .theme-toggle .fa-sun { display: block; }
 [data-theme="light"] .theme-toggle .fa-moon { display: none; }
 
@@ -328,7 +350,7 @@ body {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 80px 24px 40px;
     min-height: 100vh;
     position: relative;
 }
@@ -336,7 +358,7 @@ body {
 /* Hero Section */
 .hero-section {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     position: relative;
 }
 
@@ -344,7 +366,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
 }
 
 .hero-text {
@@ -402,8 +424,8 @@ body {
 
 .profile-frame {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     margin: 0 auto;
     transform-style: preserve-3d;
     animation: profile3D 10s ease-in-out infinite;
@@ -434,8 +456,8 @@ body {
 .stats-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 24px;
+    gap: 48px;
+    margin-top: 32px;
 }
 
 .stat-item {
@@ -444,22 +466,22 @@ body {
 
 .stat-number {
     display: block;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .stat-label {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 /* Main Content */
 .main-content {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 /* Section Headers */
@@ -939,8 +961,8 @@ body {
     }
     
     .profile-frame {
-        width: 160px;
-        height: 160px;
+        width: 220px;
+        height: 220px;
     }
     
     .stats-container {
@@ -976,8 +998,8 @@ body {
     }
     
     .profile-frame {
-        width: 120px;
-        height: 120px;
+        width: 180px;
+        height: 180px;
     }
     
     .stats-container {
