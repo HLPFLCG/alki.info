@@ -1,244 +1,570 @@
-// Website Functionality for alki.info
+// alki.info - Advanced JavaScript for Premium Link in Bio
+// Built with cutting-edge web technologies
 
-// Cookie Consent Management
-class CookieConsent {
+class AlkiWebsite {
     constructor() {
-        this.consentGiven = localStorage.getItem('cookieConsent');
         this.init();
     }
 
     init() {
-        const banner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('accept-cookies');
-        const declineBtn = document.getElementById('decline-cookies');
-        const settingsBtn = document.getElementById('cookie-settings');
+        this.setupLoadingScreen();
+        this.setupCustomCursor();
+        this.setupThemeToggle();
+        this.setupScrollAnimations();
+        this.setupCountUpAnimation();
+        this.setupIntersectionObserver();
+        this.setupHoverEffects();
+        this.setupKeyboardNavigation();
+        this.setupPerformanceOptimizations();
+        this.setupCookieConsent();
+        this.initAnalytics();
+    }
 
-        // Show banner if no consent has been given
-        if (!this.consentGiven) {
-            setTimeout(() => {
-                banner.style.display = 'block';
-            }, 1000);
-        }
+    // Loading Screen Management
+    setupLoadingScreen() {
+        const loadingScreen = document.querySelector('.loading-screen');
+        const loadingProgress = document.querySelector('.loading-progress');
+        let progress = 0;
 
-        // Handle accept button
-        if (acceptBtn) {
-            acceptBtn.addEventListener('click', () => {
-                this.setConsent('accepted');
-                banner.style.display = 'none';
-                this.loadAnalytics();
-            });
-        }
+        const updateProgress = () => {
+            progress += Math.random() * 30;
+            if (progress > 100) progress = 100;
+            
+            loadingProgress.style.width = `${progress}%`;
+            
+            if (progress < 100) {
+                setTimeout(updateProgress, 100);
+            } else {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    document.body.classList.remove('loading');
+                    this.triggerPageLoadAnimations();
+                }, 500);
+            }
+        };
 
-        // Handle decline button
-        if (declineBtn) {
-            declineBtn.addEventListener('click', () => {
-                this.setConsent('declined');
-                banner.style.display = 'none';
-            });
-        }
+        setTimeout(updateProgress, 100);
+    }
 
-        // Handle settings button
-        if (settingsBtn) {
-            settingsBtn.addEventListener('click', () => {
-                banner.style.display = banner.style.display === 'block' ? 'none' : 'block';
-            });
+    // Custom Cursor
+    setupCustomCursor() {
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = cursor.querySelector('.cursor-dot');
+        const cursorRing = cursor.querySelector('.cursor-ring');
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        const animateCursor = () => {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+            cursorRing.style.left = `${cursorX}px`;
+            cursorRing.style.top = `${cursorY}px`;
+
+            requestAnimationFrame(animateCursor);
+        };
+
+        animateCursor();
+
+        // Hover effects
+        const hoverElements = document.querySelectorAll('a, button, .link-card, .social-link');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Hide cursor on mobile
+        if (window.innerWidth <= 768) {
+            cursor.style.display = 'none';
+            document.body.style.cursor = 'auto';
         }
     }
 
-    setConsent(value) {
-        localStorage.setItem('cookieConsent', value);
-        this.consentGiven = value;
+    // Theme Toggle
+    setupThemeToggle() {
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('alki-theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('alki-theme', newTheme);
+            
+            this.triggerThemeChangeAnimation(newTheme);
+        });
+    }
+
+    // Scroll Animations
+    setupScrollAnimations() {
+        let ticking = false;
+
+        const updateScrollEffects = () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.gradient-orb, .particle');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                el.style.transform = `translateY(${yPos}px)`;
+            });
+
+            // Header parallax
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                const yPos = scrolled * 0.3;
+                heroSection.style.transform = `translateY(${yPos}px)`;
+                heroSection.style.opacity = 1 - (scrolled * 0.001);
+            }
+
+            ticking = false;
+        };
+
+        const requestTick = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', requestTick);
+    }
+
+    // Count Up Animation for Stats
+    setupCountUpAnimation() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        const countUp = (element, target) => {
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCount = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = this.formatNumber(Math.floor(current));
+                    requestAnimationFrame(updateCount);
+                } else {
+                    element.textContent = this.formatNumber(target);
+                }
+            };
+
+            updateCount();
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    const target = parseInt(entry.target.getAttribute('data-count'));
+                    countUp(entry.target, target);
+                    entry.target.classList.add('counted');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(stat => observer.observe(stat));
+    }
+
+    // Intersection Observer for animations
+    setupIntersectionObserver() {
+        const animatedElements = document.querySelectorAll('.link-card, .featured-release, .exclusive-drop');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    }
+
+    // Advanced Hover Effects
+    setupHoverEffects() {
+        const linkCards = document.querySelectorAll('.link-card');
+
+        linkCards.forEach(card => {
+            card.addEventListener('mouseenter', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const deltaX = (x - centerX) / centerX;
+                const deltaY = (y - centerY) / centerY;
+
+                card.style.transform = `perspective(1000px) rotateY(${deltaX * 5}deg) rotateX(${-deltaY * 5}deg) translateZ(10px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    }
+
+    // Keyboard Navigation
+    setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            // Alt + T: Toggle theme
+            if (e.altKey && e.key === 't') {
+                document.getElementById('themeToggle').click();
+            }
+            
+            // Escape: Close modals
+            if (e.key === 'Escape') {
+                this.closeAllModals();
+            }
+        });
+
+        // Focus trap for modals
+        this.setupFocusTrap();
+    }
+
+    // Performance Optimizations
+    setupPerformanceOptimizations() {
+        // Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Debounce resize events
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                this.handleResize();
+            }, 250);
+        });
+    }
+
+    // Cookie Consent
+    setupCookieConsent() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+        const settingsBtn = document.getElementById('cookieSettings');
+
+        const consent = localStorage.getItem('alki-cookie-consent');
+        
+        if (!consent) {
+            setTimeout(() => {
+                cookieBanner.style.display = 'block';
+            }, 2000);
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            this.setCookieConsent('accepted');
+            cookieBanner.style.display = 'none';
+            this.loadAnalytics();
+        });
+
+        declineBtn.addEventListener('click', () => {
+            this.setCookieConsent('declined');
+            cookieBanner.style.display = 'none';
+        });
+
+        settingsBtn.addEventListener('click', () => {
+            cookieBanner.style.display = cookieBanner.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+
+    // Analytics Integration
+    initAnalytics() {
+        const consent = localStorage.getItem('alki-cookie-consent');
+        if (consent === 'accepted') {
+            this.loadAnalytics();
+        }
+
+        // Track page interactions
+        this.setupEventTracking();
+    }
+
+    // Event Tracking
+    setupEventTracking() {
+        // Track link clicks
+        document.querySelectorAll('a[data-platform]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const platform = link.getAttribute('data-platform');
+                this.trackEvent('link_click', { platform });
+            });
+        });
+
+        // Track theme changes
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            this.trackEvent('theme_change', { theme });
+        });
+    }
+
+    // Utility Functions
+    formatNumber(num) {
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
+    }
+
+    setCookieConsent(consent) {
+        localStorage.setItem('alki-cookie-consent', consent);
     }
 
     loadAnalytics() {
-        // Load Google Analytics or other tracking scripts if consent is given
-        console.log('Analytics loaded with consent');
-    }
-}
-
-// Image Management for Header
-class ImageManager {
-    constructor() {
-        this.headerImage = document.getElementById('header-image');
-        this.availableImages = [
-            'tac.jpeg',
-            'sunset.jpeg',
-            'hoodie.jpeg',
-            'dominos.jpeg',
-            'royalhat.jpeg',
-            'wall.jpeg'
-        ];
-        this.currentImageIndex = 0;
-        this.init();
-    }
-
-    init() {
-        // You can implement image rotation or selection logic here
-        // For now, we'll keep the current image
-        this.preloadImages();
-    }
-
-    preloadImages() {
-        this.availableImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-
-    changeImage(imageName) {
-        if (this.headerImage && this.availableImages.includes(imageName)) {
-            this.headerImage.src = imageName;
-            this.headerImage.alt = `alki - ${imageName}`;
+        // Load Google Analytics or other tracking scripts
+        if (typeof gtag !== 'undefined') {
+            gtag('config', 'GTM-M8PZP937', {
+                page_title: document.title,
+                page_location: window.location.href
+            });
         }
     }
 
-    rotateImage() {
-        this.currentImageIndex = (this.currentImageIndex + 1) % this.availableImages.length;
-        this.changeImage(this.availableImages[this.currentImageIndex]);
-    }
-}
-
-// Button Visibility Management
-class ButtonVisibilityManager {
-    constructor() {
-        this.buttons = document.querySelectorAll('.link-card');
-        this.init();
-    }
-
-    init() {
-        this.updateButtonVisibility();
-        this.setupKeyboardShortcuts();
-    }
-
-    updateButtonVisibility() {
-        this.buttons.forEach(button => {
-            const isVisible = button.getAttribute('data-visible') === 'true';
-            const platform = button.getAttribute('data-platform');
-            
-            if (isVisible === 'false') {
-                button.style.display = 'none';
-            } else {
-                button.style.display = 'flex';
-            }
-        });
-    }
-
-    toggleButton(platform, visible) {
-        const button = document.querySelector(`[data-platform="${platform}"]`);
-        if (button) {
-            button.setAttribute('data-visible', visible);
-            button.style.display = visible === 'true' ? 'flex' : 'none';
+    trackEvent(eventName, params) {
+        // Track events with analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, params);
         }
+        console.log('Event tracked:', eventName, params);
     }
 
-    showAllButtons() {
-        this.buttons.forEach(button => {
-            button.setAttribute('data-visible', 'true');
-            button.style.display = 'flex';
+    triggerPageLoadAnimations() {
+        // Trigger animations after page loads
+        const elements = document.querySelectorAll('.hero-name, .hero-tagline, .profile-frame');
+        elements.forEach((el, index) => {
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 200);
         });
     }
 
-    hideUnusedButtons() {
-        const usedPlatforms = ['instagram', 'grouped', 'spotify', 'apple-music', 'label'];
-        this.buttons.forEach(button => {
-            const platform = button.getAttribute('data-platform');
-            if (!usedPlatforms.includes(platform)) {
-                button.setAttribute('data-visible', 'false');
-                button.style.display = 'none';
-            }
-        });
-    }
-
-    setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (e) => {
-            // Alt + B to toggle button visibility
-            if (e.altKey && e.key === 'b') {
-                this.toggleVisibilityMenu();
-            }
-        });
-    }
-
-    toggleVisibilityMenu() {
-        // You can implement a modal or menu for managing button visibility
-        console.log('Button visibility menu toggled');
-    }
-}
-
-// SEO and Analytics Enhancements
-class SEOManager {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        this.updateDynamicMeta();
-        this.trackPageView();
-    }
-
-    updateDynamicMeta() {
-        // Update meta tags based on current content
-        const title = document.title;
-        const description = document.querySelector('meta[name="description"]').content;
+    triggerThemeChangeAnimation(theme) {
+        const body = document.body;
+        body.style.transition = 'background 0.3s ease';
         
-        // Update page title with additional context
-        if (!title.includes('alki')) {
-            document.title = `alki - ${title}`;
-        }
+        // Flash effect
+        const flash = document.createElement('div');
+        flash.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: ${theme === 'light' ? 'white' : 'black'};
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        `;
+        document.body.appendChild(flash);
+        
+        setTimeout(() => {
+            flash.style.opacity = '0';
+            setTimeout(() => flash.remove(), 300);
+        }, 100);
     }
 
-    trackPageView() {
-        // Track page views if consent is given
-        const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'accepted') {
-            // Google Analytics page view tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('config', 'GTM-M8PZP937', {
-                    page_title: document.title,
-                    page_location: window.location.href
-                });
-            }
+    closeAllModals() {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => modal.style.display = 'none');
+    }
+
+    setupFocusTrap() {
+        // Implementation for focus trap in modals
+    }
+
+    handleResize() {
+        // Handle responsive changes
+        if (window.innerWidth <= 768) {
+            document.querySelector('.custom-cursor').style.display = 'none';
+            document.body.style.cursor = 'auto';
+        } else {
+            document.querySelector('.custom-cursor').style.display = 'block';
+            document.body.style.cursor = 'none';
         }
     }
 }
 
-// Initialize all functionality when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize cookie consent
-    const cookieConsent = new CookieConsent();
-    
-    // Initialize image manager
-    const imageManager = new ImageManager();
-    
-    // Initialize button visibility manager
-    const buttonManager = new ButtonVisibilityManager();
-    
-    // Initialize SEO manager
-    const seoManager = new SEOManager();
+// Advanced Link Card Component
+class LinkCard {
+    constructor(element) {
+        this.element = element;
+        this.init();
+    }
 
-    // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+    init() {
+        this.addRippleEffect();
+        this.addSoundEffect();
+        this.addHapticFeedback();
+    }
+
+    addRippleEffect() {
+        this.element.addEventListener('click', (e) => {
+            const ripple = document.createElement('span');
+            const rect = this.element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+
+            this.element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
         });
+    }
+
+    addSoundEffect() {
+        // Add subtle sound effects on hover/click
+        this.element.addEventListener('mouseenter', () => {
+            this.playSound('hover');
+        });
+
+        this.element.addEventListener('click', () => {
+            this.playSound('click');
+        });
+    }
+
+    addHapticFeedback() {
+        if ('vibrate' in navigator) {
+            this.element.addEventListener('click', () => {
+                navigator.vibrate(10);
+            });
+        }
+    }
+
+    playSound(type) {
+        // Placeholder for sound effects
+        // Could be implemented with Web Audio API
+    }
+}
+
+// Particle System
+class ParticleSystem {
+    constructor() {
+        this.particles = [];
+        this.init();
+    }
+
+    init() {
+        this.createParticles();
+        this.animate();
+    }
+
+    createParticles() {
+        const particleContainer = document.querySelector('.animated-bg');
+        const particleCount = 5;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-delay: ${Math.random() * 5}s;
+                animation-duration: ${15 + Math.random() * 10}s;
+            `;
+            particleContainer.appendChild(particle);
+            this.particles.push(particle);
+        }
+    }
+
+    animate() {
+        const animateParticles = () => {
+            this.particles.forEach(particle => {
+                const rect = particle.getBoundingClientRect();
+                // Add custom animation logic
+            });
+            requestAnimationFrame(animateParticles);
+        };
+        animateParticles();
+    }
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    const website = new AlkiWebsite();
+    
+    // Initialize link cards
+    document.querySelectorAll('.link-card').forEach(card => {
+        new LinkCard(card);
     });
 
-    // Add loading state removal
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-    }, 100);
+    // Initialize particle system
+    if (window.innerWidth > 768) {
+        new ParticleSystem();
+    }
 
-    console.log('alki.info website functionality initialized');
+    // Add CSS for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    console.log('alki.info - Premium Link in Bio loaded successfully 🚀');
 });
 
-// Export classes for potential external use
-window.CookieConsent = CookieConsent;
-window.ImageManager = ImageManager;
-window.ButtonVisibilityManager = ButtonVisibilityManager;
-window.SEOManager = SEOManager;
+// Export for potential use
+window.AlkiWebsite = AlkiWebsite;
+window.LinkCard = LinkCard;
+window.ParticleSystem = ParticleSystem;
