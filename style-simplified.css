@@ -113,44 +113,6 @@ body {
     }
 }
 
-/* Custom Cursor */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 10000;
-    mix-blend-mode: difference;
-}
-
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent-warm);
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
-    box-shadow: 0 0 10px rgba(200, 122, 95, 0.5);
-}
-
-.cursor-ring {
-    width: 32px;
-    height: 32px;
-    border: 2px solid var(--accent-primary);
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-    opacity: 0.5;
-}
-
-.custom-cursor.hover .cursor-ring {
-    width: 48px;
-    height: 48px;
-    opacity: 0.8;
-}
-
 /* Loading Screen */
 .loading-screen {
     position: fixed;
