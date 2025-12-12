@@ -456,7 +456,30 @@ footer {
 
 /* Header Content Structure */
 .header-content {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+}
+
+/* Artist Logo Section */
+.artist-logo-wrapper {
+    width: 200px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artist-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.artist-logo:hover {
+    transform: scale(1.05);
+    filter: brightness(0) saturate(100%) drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 }
 
 /* Button Visibility Classes */
@@ -531,6 +554,12 @@ footer {
     .separator,
     .cookie-settings-btn {
         font-size: 11px;
+    }
+    
+    .artist-logo-wrapper {
+        width: 160px;
+        height: 60px;
+        margin-bottom: 20px;
     }
 }
 
