@@ -9,40 +9,63 @@
 }
 
 :root {
-    /* Light Theme Colors */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-glass: rgba(255, 255, 255, 0.05);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-muted: rgba(255, 255, 255, 0.4);
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-pink: #ec4899;
-    --accent-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    /* Rock Aesthetic Color Scheme */
+    --bg-primary: #1a1814;
+    --bg-secondary: #2a2419;
+    --bg-glass: rgba(139, 119, 101, 0.1);
+    --text-primary: #f4f1ea;
+    --text-secondary: rgba(244, 241, 234, 0.7);
+    --text-muted: rgba(244, 241, 234, 0.4);
+    
+    /* Rock & Earth Tones */
+    --accent-primary: #d4a574;
+    --accent-secondary: #8b7355;
+    --accent-tertiary: #6b8e23;
+    --accent-warm: #c87a5f;
+    --accent-cool: #7a9e9f;
+    
+    /* Natural Gradients */
+    --accent-gradient: linear-gradient(135deg, #d4a574, #8b7355);
+    --accent-gradient-warm: linear-gradient(135deg, #c87a5f, #d4a574);
+    --accent-gradient-cool: linear-gradient(135deg, #7a9e9f, #6b8e23);
+    
+    /* Industrial & Natural Elements */
+    --border-color: rgba(212, 165, 116, 0.2);
+    --shadow-glow: 0 0 40px rgba(212, 165, 116, 0.2);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --shadow-warm: 0 0 30px rgba(200, 122, 95, 0.3);
+    
+    /* Special Tones for Weed & Tofu Elements */
+    --green-natural: #6b8e23;
+    --cream-natural: #f4f1ea;
+    --earth-dark: #3e2723;
+    --stone-gray: #5d5248;
+    
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Dark Theme Colors */
+/* Light Theme - Natural Rock Aesthetic */
 [data-theme="light"] {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-glass: rgba(0, 0, 0, 0.03);
-    --text-primary: #0a0a0a;
-    --text-secondary: rgba(10, 10, 10, 0.7);
-    --text-muted: rgba(10, 10, 10, 0.4);
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-pink: #ec4899;
-    --accent-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-    --border-color: rgba(0, 0, 0, 0.1);
-    --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.2);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --bg-primary: #f4f1ea;
+    --bg-secondary: #faf8f3;
+    --bg-glass: rgba(139, 119, 101, 0.05);
+    --text-primary: #2a2419;
+    --text-secondary: rgba(42, 36, 25, 0.7);
+    --text-muted: rgba(42, 36, 25, 0.4);
+    --accent-primary: #8b7355;
+    --accent-secondary: #d4a574;
+    --accent-tertiary: #6b8e23;
+    --accent-warm: #c87a5f;
+    --accent-cool: #7a9e9f;
+    --accent-gradient: linear-gradient(135deg, #8b7355, #d4a574);
+    --accent-gradient-warm: linear-gradient(135deg, #c87a5f, #8b7355);
+    --accent-gradient-cool: linear-gradient(135deg, #7a9e9f, #6b8e23);
+    --border-color: rgba(139, 115, 85, 0.2);
+    --shadow-glow: 0 0 40px rgba(212, 165, 116, 0.15);
+    --shadow-card: 0 8px 32px rgba(42, 36, 25, 0.15);
+    --shadow-warm: 0 0 30px rgba(200, 122, 95, 0.2);
 }
 
 /* Base Body Styles */
@@ -69,11 +92,12 @@ body {
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background: var(--accent-primary);
+    background: var(--accent-warm);
     border-radius: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease;
+    box-shadow: 0 0 10px rgba(200, 122, 95, 0.5);
 }
 
 .cursor-ring {
@@ -154,14 +178,14 @@ body {
 .loading-bar {
     width: 200px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(212, 165, 116, 0.2);
     border-radius: 2px;
     overflow: hidden;
 }
 
 .loading-progress {
     height: 100%;
-    background: var(--accent-gradient);
+    background: var(--accent-gradient-warm);
     border-radius: 2px;
     animation: loadingProgress 2s ease-in-out infinite;
 }
@@ -182,24 +206,49 @@ body {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: var(--accent-primary);
     border-radius: 50%;
     opacity: 0.3;
     animation: float 20s infinite linear;
 }
 
-#particle1 { top: 20%; left: 10%; animation-delay: 0s; }
-#particle2 { top: 50%; left: 80%; animation-delay: 2s; }
-#particle3 { top: 80%; left: 30%; animation-delay: 4s; }
-#particle4 { top: 30%; left: 60%; animation-delay: 6s; }
-#particle5 { top: 70%; left: 20%; animation-delay: 8s; }
+/* Natural particle colors */
+#particle1 { 
+    top: 20%; 
+    left: 10%; 
+    animation-delay: 0s; 
+    background: var(--accent-primary);
+}
+#particle2 { 
+    top: 50%; 
+    left: 80%; 
+    animation-delay: 2s; 
+    background: var(--accent-warm);
+}
+#particle3 { 
+    top: 80%; 
+    left: 30%; 
+    animation-delay: 4s; 
+    background: var(--green-natural);
+}
+#particle4 { 
+    top: 30%; 
+    left: 60%; 
+    animation-delay: 6s; 
+    background: var(--accent-cool);
+}
+#particle5 { 
+    top: 70%; 
+    left: 20%; 
+    animation-delay: 8s; 
+    background: var(--accent-secondary);
+}
 
 .gradient-orb {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
-    opacity: 0.1;
+    background: radial-gradient(circle, var(--accent-primary) 0%, var(--green-natural) 50%, transparent 70%);
+    opacity: 0.08;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -402,7 +451,7 @@ body {
     border-radius: 1px;
 }
 
-/* Featured Release */
+/* Featured Release - Rock Aesthetic */
 .featured-release {
     margin-bottom: 60px;
 }
@@ -415,20 +464,32 @@ body {
     padding: 24px;
     overflow: hidden;
     box-shadow: var(--shadow-card);
+    position: relative;
+}
+
+.release-embed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-gradient-warm);
 }
 
 .spotify-embed {
     border-radius: 12px;
 }
 
-/* Exclusive Drop */
+/* Exclusive Drop - Earthy Rock Vibe */
 .exclusive-drop {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background: linear-gradient(135deg, var(--earth-dark), var(--stone-gray));
     border-radius: 24px;
     padding: 40px 32px;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(212, 165, 116, 0.2);
 }
 
 .exclusive-drop::before {
@@ -438,7 +499,8 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-warm) 0%, transparent 70%);
+    opacity: 0.1;
     animation: float 15s ease-in-out infinite;
 }
 
@@ -608,17 +670,31 @@ body {
     transform: translateX(4px);
 }
 
-/* Instagram Link */
-.instagram-link .link-icon { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+/* Platform-Specific Rock Aesthetic Colors */
+.instagram-link .link-icon { 
+    background: linear-gradient(135deg, var(--accent-warm), var(--accent-primary));
+    border: 2px solid rgba(212, 165, 116, 0.3);
+}
 
-/* Spotify Link */
-.spotify-link .link-icon { background: #1db954; }
+.spotify-link .link-icon { 
+    background: var(--green-natural);
+    border: 2px solid rgba(107, 142, 35, 0.3);
+}
 
-/* Apple Link */
-.apple-link .link-icon { background: #000000; }
+.apple-link .link-icon { 
+    background: var(--earth-dark);
+    border: 2px solid rgba(62, 39, 35, 0.3);
+}
 
-/* Label Link */
-.label-link .link-icon { background: var(--bg-secondary); }
+.grouped-link .link-icon { 
+    background: var(--accent-gradient-cool);
+    border: 2px solid rgba(122, 158, 159, 0.3);
+}
+
+.label-link .link-icon { 
+    background: var(--stone-gray);
+    border: 2px solid rgba(93, 82, 72, 0.3);
+}
 
 /* Footer */
 .footer {
