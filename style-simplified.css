@@ -203,6 +203,109 @@ main > section {
     margin: 32px 0;
 }
 
+/* Free Song Section */
+.free-song-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.free-song-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.free-song-content {
+    position: relative;
+    z-index: 1;
+}
+
+.free-song-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--secondary), #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.free-song-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.free-song-embed {
+    margin: 24px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    position: relative;
+}
+
+.grouped-embed {
+    width: 100%;
+    border: none;
+}
+
+.free-song-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: var(--secondary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.benefit-item i {
+    font-size: 16px;
+    color: var(--secondary);
+}
+
+.benefit-item:hover i {
+    color: white;
+}
+
 /* Add more spacing between individual link cards */
 .link-card {
     margin-bottom: 4px;
@@ -601,6 +704,96 @@ footer {
     .links-grid {
         margin: 24px 0;
         gap: 12px;
+    }
+    
+    .free-song-section {
+        padding: 24px 20px;
+        margin: 24px 0;
+        text-align: center;
+    }
+    
+    .free-song-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .free-song-description {
+        font-size: 15px;
+        margin-bottom: 20px;
+        padding: 0 8px;
+    }
+    
+    .free-song-embed {
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+    
+    .grouped-embed {
+        height: 350px;
+    }
+    
+    .free-song-benefits {
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .benefit-item {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+    .free-song-section {
+        padding: 28px 24px;
+    }
+    
+    .grouped-embed {
+        height: 380px;
+    }
+}
+
+/* Perfect Mobile Centering Fix */
+@media (max-width: 480px) {
+    main {
+        padding: 0 16px 24px;
+    }
+    
+    .container {
+        border-radius: 16px;
+        overflow-x: hidden;
+    }
+    
+    /* Ensure all content sections are perfectly centered */
+    main > section {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .free-song-section,
+    .featured-track,
+    .links-grid {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Fix any overflow issues */
+    .free-song-embed {
+        overflow-x: hidden;
+        margin-left: -8px;
+        margin-right: -8px;
+        padding: 0 8px;
+    }
+    
+    .grouped-embed {
+        width: calc(100% + 16px);
+        margin-left: -8px;
+        margin-right: -8px;
     }
 }
 
